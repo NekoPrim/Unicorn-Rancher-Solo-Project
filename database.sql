@@ -3,41 +3,41 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
-CREATE TABLE "users" (
+CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (255) UNIQUE NOT NULL,
     "password" VARCHAR (1024) NOT NULL,
     "authLevel" VARCHAR (255) DEFAULT 'USER'
 );
 
-CREATE TABLE "users_badges" (
-    "id" SERIAL PRIMARY KEY,
-    "user_id" INTEGER REFERENCES "users",
-    "badge_id" INTEGER  REFERENCES "badges"
-);
-
-CREATE TABLE "badges" (
+CREATE TABLE "badge" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (255),
     "image" VARCHAR (1024)
 );
 
-INSERT INTO "users"
+CREATE TABLE "user_badge" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "user",
+    "badge_id" INTEGER  REFERENCES "badge"
+);
+
+INSERT INTO "user"
 ( "username", "password" )
 VALUES
 ( 'nekoCake', 'Nekos4ever' ),
 ( 'nekoAdmin', 'topDog1' ),
 ( 'poopFaceNeko', 'Gross100' );
 
-INSERT INTO "badges"
+INSERT INTO "badge"
 ( "name", "image" )
 VALUES
-( 'noobIcorn', './public/images/noobicon.jpeg' ),
-( 'uniCorny', './public/images/uniCorny.jpeg' ),
-( 'uniCan', './public/images/uniCan.jpeg' ),
-( 'unicornuCopia', './public/unicornuCopia' );
+( 'noobIcorn', 'images/noobicon.jpeg' ),
+( 'uniCorny', 'images/uniCorny.jpeg' ),
+( 'uniCan', 'images/uniCan.jpeg' ),
+( 'unicornuCopia', 'images/unicornuCopia' );
 
-INSERT INTO "users_badges"
+INSERT INTO "user_badge"
 ( "user_id", "badge_id" )
 VALUES
 ( 1, 4 ),
@@ -47,55 +47,43 @@ VALUES
 ( 2, 4 ),
 ( 3, 1 );
 
-UPDATE "users"
+UPDATE "user"
 SET "authLevel" = 'ADMIN'
 WHERE "id" = 2;
 
-CREATE TABLE "levels" (
+CREATE TABLE "level" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR (255),
 	"number" INTEGER
 );
 
-CREATE TABLE "levels" (
-	"id" SERIAL PRIMARY KEY,
-	"name" VARCHAR (255),
-	"number" INTEGER
-);
-
-CREATE TABLE "levels" (
-	"id" SERIAL PRIMARY KEY,
-	"name" VARCHAR (255),
-	"number" INTEGER
-);
-
-CREATE TABLE "questions" (
+CREATE TABLE "question" (
 	"id" SERIAL PRIMARY KEY,
 	"content" VARCHAR (1024),
-	"level_number" INTEGER REFERENCES "levels",
+	"level_number" INTEGER REFERENCES "level",
 	"question_image" VARCHAR (1024)
 );
 
-CREATE TABLE "answers" (
+CREATE TABLE "answer" (
 	"id" SERIAL PRIMARY KEY,
-	"question_id" INTEGER REFERENCES "questions",
+	"question_id" INTEGER REFERENCES "question",
 	"content" VARCHAR (255),
 	"response" VARCHAR (255),
 	"points" INTEGER
 );
 
-CREATE TABLE "users_answers" (
+CREATE TABLE "user_answer" (
 	"id" SERIAL PRIMARY KEY,
-	"user_id" INTEGER REFERENCES "users",
-	"answers_id" INTEGER REFERENCES "answers"
+	"user_id" INTEGER REFERENCES "user",
+	"answers_id" INTEGER REFERENCES "answer"
 );
 
-INSERT INTO "levels"
+INSERT INTO "level"
 ( "name", "number" )
 VALUES
 ( 'Find Some Unicorns!', 1 );
 
-INSERT INTO "questions"
+INSERT INTO "question"
 ( "content", "level_number", "question_image" )
 VALUES
 ( 'You’re on a canoe and just around the river bend you see some unicorns on the shore.  Luckily you have a rope. What do you do?', 1, 'images/question-1.jpeg' ),
@@ -109,7 +97,7 @@ VALUES
 ( 'You’re at the circus, trying to distract yourself from your mundane life, when you notice some unicorns getting hassled by some clowns.  What do you do?', 1, 'images/question-9.jpeg' ),
 ( 'You’re at Walmart, grocery shopping, when you notice some unicorns arguing with a worker in the bread aisle. What do you do?', 1, 'images/question-10.jpeg' );
 
-INSERT INTO "answers"
+INSERT INTO "answer"
 ( "question_id", "content", "response", "points" )
 VALUES
 ( 1, 'Use the rope to try to lasso some unicorns from your canoe.', 'You lasso’d a unicorn.', 1 ),

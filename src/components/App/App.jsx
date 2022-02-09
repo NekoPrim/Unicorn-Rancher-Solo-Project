@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import Level from '../Level/Level';
 
 import './App.css';
 
@@ -38,6 +39,7 @@ function App() {
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
+          
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -66,6 +68,14 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/level"
+          >
+            <Level />
           </ProtectedRoute>
 
           <Route
@@ -104,6 +114,20 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/user" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/game"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/level" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

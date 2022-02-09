@@ -22,13 +22,6 @@ CREATE TABLE "user_badge" (
     "badge_id" INTEGER  REFERENCES "badge"
 );
 
-INSERT INTO "user"
-( "username", "password" )
-VALUES
-( 'nekoCake', 'Nekos4ever' ),
-( 'nekoAdmin', 'topDog1' ),
-( 'poopFaceNeko', 'Gross100' );
-
 INSERT INTO "badge"
 ( "name", "image" )
 VALUES
@@ -36,20 +29,6 @@ VALUES
 ( 'uniCorny', 'images/uniCorny.jpeg' ),
 ( 'uniCan', 'images/uniCan.jpeg' ),
 ( 'unicornuCopia', 'images/unicornuCopia' );
-
-INSERT INTO "user_badge"
-( "user_id", "badge_id" )
-VALUES
-( 1, 4 ),
-( 2, 1 ),
-( 2, 2 ),
-( 2, 3 ),
-( 2, 4 ),
-( 3, 1 );
-
-UPDATE "user"
-SET "authLevel" = 'ADMIN'
-WHERE "id" = 2;
 
 CREATE TABLE "level" (
 	"id" SERIAL PRIMARY KEY,

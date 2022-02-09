@@ -5,7 +5,8 @@
   align-items: center;
 
   margin: 0 0 30px;
-  background-color: #00acb0;
+  background-image: url('../../../public/images/sparkles-stars.gif');
+  background-size: contain;
   overflow: hidden;
 }
 
@@ -17,14 +18,15 @@
   font-size: 24px;
   font-weight: 700;
   color: #f2f2f2;
-  padding-left: 10px;
+  padding-left: 20px;
   margin: 0;
 }
 
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  background-color: #00acb0;
+  background-image: url('../../../public/images/sparkles-stars.gif');
+  background-size: 200%;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -38,5 +40,5 @@
 }
 
 .navLink:hover {
-  background-color: #008183;
+  background-color: pink;
 }

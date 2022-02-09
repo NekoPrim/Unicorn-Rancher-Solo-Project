@@ -18,7 +18,12 @@ const Level = () => {
 
     return(
         <div>
-            <h2>{store.level.id}</h2>
+            {store.level.map((number, id) => (
+                <>
+                    <h2>{number.name}</h2>
+                    <h4>Level: {number.number}</h4>
+                </>
+            ))}
         </div>
     );
 }

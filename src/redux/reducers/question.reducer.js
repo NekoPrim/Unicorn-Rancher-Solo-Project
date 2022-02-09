@@ -1,6 +1,6 @@
-const levelReducer = (state = [], action) => {
+const questionReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_LEVEL':
+        case 'SET_QUESTION':
             return action.payload;
         default:
             return state;
@@ -9,4 +9,4 @@ const levelReducer = (state = [], action) => {
 
   // level will be on the redux state at:
   // state.level
-export default levelReducer;
+export default questionReducer;

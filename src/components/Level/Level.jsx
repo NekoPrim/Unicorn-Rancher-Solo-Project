@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 
+import QuestionOne from '../Question/QuestionOne';
+
 const Level = () => {
 
     // setup dispatch and redux store
@@ -19,11 +21,12 @@ const Level = () => {
     return(
         <div>
             {store.level.map((number, id) => (
-                <>
-                    <h2>{number.name}</h2>
+                <div key={id}>
+                    <h1>{number.name}</h1>
                     <h4>Level: {number.number}</h4>
-                </>
+                </div>
             ))}
+            <QuestionOne />
         </div>
     );
 }

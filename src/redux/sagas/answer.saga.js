@@ -2,25 +2,28 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
-function* fetchLevel() {
+function* fetchAnswer(action) {
+    console.log('in fetchAnswer', action.payload);
+    const id = action.payload;
+
     try {
         const config = {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
         };
-        
-        // send request to router
-        const response = yield axios.get('/api/level', config);
 
-        // then set reducer
-        yield put({ type: 'SET_LEVEL', payload: response.data });
+        // send request to router
+        const response = yield axios.get(`/api/answer/${id}`, config, {id} );
+
+        // then
+        yield put({ type: 'SET_ANSWER', payload: response.data });
     } catch (error) {
         console.log('Level get request failed', error);
     }
 }
 
-function* levelSaga() {
-    yield takeLatest('FETCH_LEVEL', fetchLevel);
+function* answerSaga() {
+    yield takeLatest('FETCH_ANSWER', fetchAnswer);
 }
 
-export default levelSaga;
+export default answerSaga;

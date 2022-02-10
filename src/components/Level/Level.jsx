@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 
-import QuestionOne from '../question/questionOne';
+import QuestionOne from '../Question/QuestionOne';
 
 const Level = () => {
 

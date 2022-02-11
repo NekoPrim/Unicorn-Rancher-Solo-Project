@@ -17,7 +17,7 @@ const ResponseThree = () => {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_POINTS' });
-    })
+    }, []);
 
     return(
         <div>

@@ -13,6 +13,7 @@ const levelRouter = require('./routes/level.router');
 const questionRouter = require('./routes/question.router');
 const answerRouter = require('./routes/answer.router');
 const userAnswerRouter = require('./routes/userAnswer.router');
+const pointsRouter = require('./routes/points.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -31,6 +32,7 @@ app.use('/api/level', levelRouter);
 app.use('/api/question', questionRouter);
 app.use('/api/answer', answerRouter);
 app.use('/api/userAnswer', userAnswerRouter);
+app.use('/api/points', pointsRouter);
 
 // Serve static files
 app.use(express.static('build'));

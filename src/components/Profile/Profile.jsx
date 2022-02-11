@@ -13,7 +13,10 @@ const Profile = () => {
         <div>
             <div className="pHeader">
             <img className="pImg" src={store.user.profile_image} />
-            <h2>{store.user.username}</h2>
+            <h2>User Name: {store.user.username}</h2>
+            </div>
+            <div>
+                <h2 className="pBody">Your Badges!</h2>
             </div>
         </div>
     );

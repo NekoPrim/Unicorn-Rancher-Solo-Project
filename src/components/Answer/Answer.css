@@ -1,0 +1,9 @@
+.aContent {
+    text-align: center;
+}
+
+.aBtn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

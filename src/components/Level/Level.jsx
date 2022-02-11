@@ -1,11 +1,13 @@
 import useReduxStore from '../../hooks/useReduxStore';
 
+import './Level.css';
+
 const Level = () => {
 
     const store = useReduxStore();
     console.log('level data', store.level);
     return(
-        <div>
+        <div className="levelTitle">
             {store.level.map((number, id) => (
                 <div key={id}>
                     <h1>{number.name}</h1>

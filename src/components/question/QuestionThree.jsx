@@ -4,6 +4,7 @@ import useReduxStore from '../../hooks/useReduxStore';
 
 import Level from '../Level/Level';
 import AnswerThree from '../Answer/AnswerThree';
+import './Question.css';
 
 const QuestionThree = () => {
 
@@ -46,11 +47,11 @@ const QuestionThree = () => {
             {/* level data */}
             <Level />
             
-            <h2>Question 3</h2>
+            <h2 className="qTitle">Question 3</h2>
             {store.question.map((content, id) => (
                 <div key={id}>
-                    <h3>{content.content}</h3>
-                    <img src={content.question_image} />
+                    <h3 className="qContent">{content.content}</h3>
+                    <img className="qImg" src={content.question_image} />
                 </div>
             ))}
             {/* answer data */}

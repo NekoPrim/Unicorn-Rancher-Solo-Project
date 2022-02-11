@@ -1,0 +1,9 @@
+.bTitle {
+    text-align: center;
+}
+
+.bBtn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50);
+}

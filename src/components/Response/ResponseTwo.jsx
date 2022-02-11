@@ -2,6 +2,7 @@ import useReduxStore from '../../hooks/useReduxStore';
 import { Link } from 'react-router-dom';
 
 import Level from '../Level/Level';
+import './Response.css';
 
 const ResponseTwo = () => {
 
@@ -14,10 +15,10 @@ const ResponseTwo = () => {
             {/* level data */}
             <Level />
 
-            <h2>{store.selected.response}</h2>
+            <h2 className="rContent">{store.selected.response}</h2>
             {/* navigate to next question */}
             <Link to="/questionThree">
-                <button className="btn">
+                <button className="btn rBtn">
                     Next Question
                 </button>
             </Link>

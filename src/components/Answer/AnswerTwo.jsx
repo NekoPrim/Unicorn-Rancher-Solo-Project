@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 import { Link } from 'react-router-dom';
 
+import './Answer.css';
 
 const AnswerTwo = () => {
 
@@ -34,7 +35,7 @@ const AnswerTwo = () => {
     return(
         <div>
             {store.answer.map((content, id) => (
-                <div key={id}>
+                <div className="aContent" key={id}>
                     <h4 onClick={() => handleSelected(content)}>
                         {content.content}
                     </h4>
@@ -42,7 +43,7 @@ const AnswerTwo = () => {
             ))}
             {/* navigate to response of selected answer */}
             <Link to="/responseTwo">
-                <button className="btn" onClick={handleAnswer}>
+                <button className="btn aBtn" onClick={handleAnswer}>
                     Next Question
                 </button>
             </Link>

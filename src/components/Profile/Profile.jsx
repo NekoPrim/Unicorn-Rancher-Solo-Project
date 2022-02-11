@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import useReduxStore from '../../hooks/useReduxStore';
+
+import './Profile.css'
 
 const Profile = () => {
 
-    // setup dispatch
-    const dispatch = useDispatch();
+    // gain access to global variables
+    const store = useReduxStore();
+    console.log('user data', store.user);
 
-    useEffect(() => {
-        // send request for user info
-    })
-
+    // append user data to DOM
     return(
         <div>
-
+            <div className="pHeader">
+            <img className="pImg" src={store.user.profile_image} />
+            <h2>{store.user.username}</h2>
+            </div>
         </div>
     );
 }

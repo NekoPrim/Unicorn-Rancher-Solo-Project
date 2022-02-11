@@ -29,5 +29,27 @@ router.post('/', (req, res) => {
         });
 });
 
+router.delete('/', (req, res) => {
+
+    // setup SQL command
+    const queryText =`
+        DELETE FROM "user_answer"
+        WHERE id = $1;
+    `;
+
+    const queryParams = [ req.user.id ];
+
+    // send command to database
+    pool.query(queryText, queryParams)
+        .then(() => {
+            console.log('you`re super good at deleting!')
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('pool user_answer DELETE ERROR!', err);
+            res.sendStatus(500);
+        })
+});
+
 
 module.exports = router;

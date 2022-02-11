@@ -11,12 +11,14 @@ const ResponseThree = () => {
 
     return(
         <div>
+            {/* level data */}
             <Level />
 
             <h2>{store.selected.response}</h2>
+            {/* navigate to badge component */}
             <Link to="/badge">
-                <button>
-                    Next Question
+                <button className="btn">
+                    Finished!
                 </button>
             </Link>
         </div>

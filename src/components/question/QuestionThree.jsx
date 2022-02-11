@@ -23,13 +23,13 @@ const QuestionThree = () => {
         const random = randomNumberGenerator(1, 10);
         console.log('random', random);
 
-        // get new question with random number
+        // GET new question with random number
         dispatch({ 
             type: 'FETCH_QUESTION',
             payload: random
         });
 
-        // get new answers with random number
+        // GET new answers with random number
         dispatch({
             type: 'FETCH_ANSWER',
             payload: random
@@ -43,15 +43,17 @@ const QuestionThree = () => {
     // render question three to the DOM
     return(
         <div>
+            {/* level data */}
             <Level />
             
-            <h2>Question 2</h2>
+            <h2>Question 3</h2>
             {store.question.map((content, id) => (
                 <div key={id}>
                     <h3>{content.content}</h3>
                     <img src={content.question_image} />
                 </div>
             ))}
+            {/* answer data */}
             <AnswerThree />
         </div>
     );

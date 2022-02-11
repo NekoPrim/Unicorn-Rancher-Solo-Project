@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
-import { HashRouter as Router, Route, Link} from 'react-router-dom';
 
 import Level from '../Level/Level';
 import AnswerOne from '../Answer/AnswerOne';
@@ -24,16 +23,16 @@ const QuestionOne = () => {
         const random = randomNumberGenerator(1, 10);
         console.log('random', random);
 
-        // get level data
+        // GET level data
         dispatch({ type: 'FETCH_LEVEL' });
 
-        // get question with random number
+        // GET question with random number
         dispatch({ 
             type: 'FETCH_QUESTION',
             payload: random
         });
 
-        // get answers with random numbers
+        // GET answers with random numbers
         dispatch({
             type: 'FETCH_ANSWER',
             payload: random
@@ -47,6 +46,7 @@ const QuestionOne = () => {
     // render question one to the DOM
     return(
         <div>
+            {/* level data */}
             <Level />
                 
             <h2>Question 1</h2>
@@ -56,6 +56,7 @@ const QuestionOne = () => {
                     <img src={content.question_image} />
                 </div>
             ))}
+            {/* answer data */}
             <AnswerOne />
         </div>
     );

@@ -11,11 +11,13 @@ const ResponseOne = () => {
 
     return(
         <div>
+            {/* level data */}
             <Level />
 
             <h2>{store.selected.response}</h2>
+            {/* navigate to next question */}
             <Link to="/questionTwo">
-                <button>
+                <button className="btn">
                     Next Question
                 </button>
             </Link>

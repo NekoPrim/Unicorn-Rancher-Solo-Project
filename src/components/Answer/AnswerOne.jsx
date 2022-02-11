@@ -22,7 +22,7 @@ const AnswerOne = () => {
         });
     }
 
-    // onClick send final selected answer to database
+    // onClick POST selected data to database
     const handleAnswer = () => {
         dispatch({
             type: 'CREATE_USER_ANSWER',
@@ -40,8 +40,9 @@ const AnswerOne = () => {
                     </h4>
                 </div>
             ))}
+            {/* navigate to response of selected answer */}
             <Link to="/responseOne">
-                <button onClick={handleAnswer}>
+                <button className="btn" onClick={handleAnswer}>
                     Response
                 </button>
             </Link>

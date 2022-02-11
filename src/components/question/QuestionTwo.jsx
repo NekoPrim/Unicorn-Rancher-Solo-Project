@@ -23,13 +23,13 @@ const QuestionTwo = () => {
         const random = randomNumberGenerator(1, 10);
         console.log('random', random);
 
-        // get new question with random number
+        // GET new question with random number
         dispatch({ 
             type: 'FETCH_QUESTION',
             payload: random
         });
 
-        // get new answers with random number
+        // GET new answers with random number
         dispatch({
             type: 'FETCH_ANSWER',
             payload: random
@@ -43,6 +43,7 @@ const QuestionTwo = () => {
     // render question two to the DOM
     return(
         <div>
+            {/* level data */}
             <Level />
 
             <h2>Question 2</h2>
@@ -52,6 +53,7 @@ const QuestionTwo = () => {
                     <img src={content.question_image} />
                 </div>
             ))}
+            {/* answer data */}
             <AnswerTwo />
         </div>
     );

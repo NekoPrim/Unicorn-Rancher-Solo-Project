@@ -27,6 +27,7 @@ import ResponseTwo from '../Response/ResponseTwo';
 import QuestionThree from '../Question/QuestionThree';
 import ResponseThree from '../Response/ResponseThree';
 import Badge from '../Badge/Badge';
+import Profile from '../Profile/Profile';
 import './App.css';
 
 function App() {
@@ -130,6 +131,14 @@ function App() {
             path="/badge"
           >
             <Badge />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/Profile"
+          >
+            <Profile />
           </ProtectedRoute>
 
           <Route
@@ -266,6 +275,20 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/Badge" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/Profile"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/Profile" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

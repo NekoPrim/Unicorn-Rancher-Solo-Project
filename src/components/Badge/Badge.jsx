@@ -5,8 +5,8 @@ const Badge = () => {
         <div>
             <h1>Congratulations!!!</h1>
             <Link to='/home'>
-                <button>
-                    Finish
+                <button className="btn">
+                    Home
                 </button>
             </Link>
         </div>

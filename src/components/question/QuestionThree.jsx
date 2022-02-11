@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 
 import Level from '../Level/Level';
-import AnswerOne from '../Answer/AnswerOne';
+import AnswerThree from '../Answer/AnswerThree';
 import './Question.css';
 
-const QuestionOne = () => {
+const QuestionThree = () => {
 
     // generate random number
     const randomNumberGenerator = (min, max) => {
@@ -24,33 +24,30 @@ const QuestionOne = () => {
         const random = randomNumberGenerator(1, 10);
         console.log('random', random);
 
-        // GET level data
-        dispatch({ type: 'FETCH_LEVEL' });
-
-        // GET question with random number
+        // GET new question with random number
         dispatch({ 
             type: 'FETCH_QUESTION',
             payload: random
         });
 
-        // GET answers with random numbers
+        // GET new answers with random number
         dispatch({
             type: 'FETCH_ANSWER',
             payload: random
         });
-    }, []); // end useEffect
+    }, []);
 
     // check question and answers
     console.log('question data', store.question);
     console.log('answer data', store.answer)
     
-    // render question one to the DOM
+    // render question three to the DOM
     return(
         <div>
             {/* level data */}
             <Level />
-                
-            <h2 className="qTitle">Question 1</h2>
+            
+            <h2 className="qTitle">Question 3</h2>
             {store.question.map((content, id) => (
                 <div key={id}>
                     <h3 className="qContent">{content.content}</h3>
@@ -58,10 +55,9 @@ const QuestionOne = () => {
                 </div>
             ))}
             {/* answer data */}
-            <AnswerOne />
+            <AnswerThree />
         </div>
     );
 }
 
-
-export default QuestionOne;
+export default QuestionThree;

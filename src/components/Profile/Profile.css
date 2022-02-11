@@ -1,0 +1,13 @@
+.pHeader {
+    display: flex;
+    margin-left: 30px;
+    flex-wrap: wrap;
+}
+
+.pImg {
+    border: 3px solid pink;
+    border-radius: 10px;
+    height: 200px;
+    margin-right: 30px;
+    width: 200px;
+}

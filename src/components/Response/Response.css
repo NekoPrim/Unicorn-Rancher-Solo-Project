@@ -1,0 +1,9 @@
+.rContent {
+    text-align: center;
+}
+
+.rBtn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -38,6 +38,9 @@ const QuestionOne = () => {
             type: 'FETCH_ANSWER',
             payload: random
         });
+
+        // DELETE user_answer at start of game
+        dispatch({ type: 'DELETE_USER_ANSWER' })
     }, []); // end useEffect
 
     // check question and answers

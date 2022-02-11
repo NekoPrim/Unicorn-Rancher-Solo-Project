@@ -29,12 +29,13 @@ router.post('/', (req, res) => {
         });
 });
 
+// Handles Ajax request to delete user_answer
 router.delete('/', (req, res) => {
 
     // setup SQL command
     const queryText =`
         DELETE FROM "user_answer"
-        WHERE id = $1;
+        WHERE "user_id" = $1;
     `;
 
     const queryParams = [ req.user.id ];

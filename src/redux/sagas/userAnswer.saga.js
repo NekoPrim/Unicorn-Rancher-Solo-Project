@@ -22,7 +22,7 @@ function* deleteUserAnswer() {
 
     try{
         // send command to router
-        yield axios.delete(`'/api/userAnswer`);
+        yield axios.delete('/api/userAnswer');
     } catch (error) {
         console.error('Delete userAnswer request failed!', error);
     }

@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 import { Link } from 'react-router-dom';
 
@@ -9,6 +11,13 @@ const ResponseThree = () => {
     // gain access to global variables
     const store = useReduxStore();
     console.log('selected answer', store.selected);
+
+    // setup dispatch
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_POINTS' });
+    })
 
     return(
         <div>

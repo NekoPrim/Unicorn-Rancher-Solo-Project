@@ -23,6 +23,10 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import QuestionOne from '../Question/QuestionOne';
 import ResponseOne from '../Response/ResponseOne';
 import QuestionTwo from '../Question/QuestionTwo';
+import ResponseTwo from '../Response/ResponseTwo';
+import QuestionThree from '../Question/QuestionThree';
+import ResponseThree from '../Response/ResponseThree';
+import Badge from '../Badge/Badge';
 import './App.css';
 
 function App() {
@@ -94,6 +98,38 @@ function App() {
             path="/questionTwo"
           >
             <QuestionTwo />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/responseTwo"
+          >
+            <ResponseTwo />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/questionThree"
+          >
+            <QuestionThree />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/responseThree"
+          >
+            <ResponseThree />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/badge"
+          >
+            <Badge />
           </ProtectedRoute>
 
           <Route
@@ -174,6 +210,62 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/questionTwo" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/game"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/responseTwo" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/game"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/QuestionThree" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/game"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/ResponseThree" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/game"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/Badge" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

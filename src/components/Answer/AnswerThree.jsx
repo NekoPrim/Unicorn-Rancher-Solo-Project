@@ -3,7 +3,7 @@ import useReduxStore from '../../hooks/useReduxStore';
 import { Link } from 'react-router-dom';
 
 
-const AnswerTwo = () => {
+const AnswerThree = () => {
 
     // setup dispatch and history
     const dispatch = useDispatch();
@@ -40,7 +40,7 @@ const AnswerTwo = () => {
                     </h4>
                 </div>
             ))}
-            <Link to="/responseTwo">
+            <Link to="/responseThree">
                 <button onClick={handleAnswer}>
                     Next Question
                 </button>
@@ -49,4 +49,4 @@ const AnswerTwo = () => {
     );
 }
 
-export default AnswerTwo;
+export default AnswerThree;

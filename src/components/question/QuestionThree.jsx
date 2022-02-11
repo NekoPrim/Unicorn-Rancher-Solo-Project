@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 
 import Level from '../Level/Level';
-import AnswerTwo from '../Answer/AnswerTwo';
+import AnswerThree from '../Answer/AnswerThree';
 
-const QuestionTwo = () => {
+const QuestionThree = () => {
 
     // generate random number
     const randomNumberGenerator = (min, max) => {
@@ -40,11 +40,11 @@ const QuestionTwo = () => {
     console.log('question data', store.question);
     console.log('answer data', store.answer)
     
-    // render question two to the DOM
+    // render question three to the DOM
     return(
         <div>
             <Level />
-
+            
             <h2>Question 2</h2>
             {store.question.map((content, id) => (
                 <div key={id}>
@@ -52,9 +52,9 @@ const QuestionTwo = () => {
                     <img src={content.question_image} />
                 </div>
             ))}
-            <AnswerTwo />
+            <AnswerThree />
         </div>
     );
 }
 
-export default QuestionTwo;
+export default QuestionThree;

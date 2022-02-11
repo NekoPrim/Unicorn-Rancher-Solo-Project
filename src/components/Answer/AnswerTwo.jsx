@@ -3,7 +3,7 @@ import useReduxStore from '../../hooks/useReduxStore';
 import { Link } from 'react-router-dom';
 
 
-const AnswerOne = () => {
+const AnswerTwo = () => {
 
     // setup dispatch and history
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const AnswerOne = () => {
     console.log('selected', store.selected);
     const answerId = store.selected.id;
 
-    // onClick capture selected answer
+    // onClick capture data
     const handleSelected = (content) => {
         dispatch({
             type: 'SET_SELECTED',
@@ -22,15 +22,15 @@ const AnswerOne = () => {
         });
     }
 
-    // onClick send final selected answer to database
+    // onClick send data to database
     const handleAnswer = () => {
         dispatch({
             type: 'CREATE_USER_ANSWER',
             payload: answerId
         });
+        // history.push('/questionTwo');
     }
 
-    // render answers from question one to the DOM
     return(
         <div>
             {store.answer.map((content, id) => (
@@ -40,13 +40,13 @@ const AnswerOne = () => {
                     </h4>
                 </div>
             ))}
-            <Link to="/responseOne">
+            {/* <Link to="/questionThree"> */}
                 <button onClick={handleAnswer}>
-                    Response
+                    Next Question
                 </button>
-            </Link>
+            {/* </Link> */}
         </div>
     );
 }
 
-export default AnswerOne;
+export default AnswerTwo;

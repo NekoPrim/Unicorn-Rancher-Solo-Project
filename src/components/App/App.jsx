@@ -19,8 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import Level from '../Level/Level';
 
+import QuestionOne from '../Question/QuestionOne';
+import ResponseOne from '../Response/ResponseOne';
+import QuestionTwo from '../Question/QuestionTwo';
 import './App.css';
 
 function App() {
@@ -73,9 +75,25 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/level"
+            path="/questionOne"
           >
-            <Level />
+            <QuestionOne />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/responseOne"
+          >
+            <ResponseOne />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/questionTwo"
+          >
+            <QuestionTwo />
           </ProtectedRoute>
 
           <Route
@@ -127,7 +145,35 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/level" />
+              <Redirect to="/questionOne" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/game"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/responseOne" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/game"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/questionTwo" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

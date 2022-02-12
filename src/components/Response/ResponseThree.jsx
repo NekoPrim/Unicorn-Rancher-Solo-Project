@@ -19,6 +19,21 @@ const ResponseThree = () => {
         dispatch({ type: 'FETCH_POINTS' });
     }, []);
 
+    // check user points
+    console.log('user points', store.points);
+    const score = store.points;
+
+    // add up user points to get total
+    const add = (array) => {
+        let sum = 0;
+        array.map((point) => {
+            sum += point.points;
+        });
+        return sum;
+    }
+    const total = add(score);
+    console.log('total', total);
+
     return(
         <div>
             {/* level data */}

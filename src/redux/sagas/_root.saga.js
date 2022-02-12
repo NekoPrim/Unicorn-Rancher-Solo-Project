@@ -7,6 +7,7 @@ import questionSaga from './question.saga';
 import answerSaga from './answer.saga';
 import userAnswerSaga from './userAnswer.saga';
 import pointsSaga from './points.saga';
+import userBadgeSaga from './userBadge.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -25,5 +26,6 @@ export default function* rootSaga() {
     answerSaga(), // GET answers
     userAnswerSaga(), // POST user answer and DELETE user answer
     pointsSaga(), // GET points
+    userBadgeSaga(), // POST user badge
   ]);
 }

@@ -15,15 +15,19 @@ const Badge = () => {
     const newBadge = store.newBadge;
     const userBadge = store.userBadge;
 
-    const findNewBadge = () => {
+    const findNewBadge = (array) => {
         console.log('in findNewBadge');
 
-        const myBadge;
 
-        for (let new of userBadge) {
-            
+        for (let thisBadge of array) {
+            if (thisBadge.id === newBadge) {
+                let myBadge = thisBadge;
+                return myBadge;
+            }
         }
     }
+    const myNewBadge = findNewBadge(userBadge);
+    console.log('new badge', myNewBadge)
 
     // // setup dispatch
     // const dispatch = useDispatch();
@@ -36,7 +40,14 @@ const Badge = () => {
     return(
         <div>
             <Level />
+            
             <h1 className="bTitle">Congratulations!!!</h1>
+            {myNewBadge.map((my, id) => (
+                <div key={id}>
+                    <h2>{my.name}</h2>
+                    <img src={my.image}
+                </div>
+            ))}
             <Link to='/home'>
                 <button className="btn bBtn">
                     Home

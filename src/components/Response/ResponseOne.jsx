@@ -14,10 +14,10 @@ const ResponseOne = () => {
         <div>
             {/* level data */}
             <Level />
-
+            <div>
             <h2 className="rContent">{store.selected.response}</h2>
             <img className="rImg" src={store.selected.question_image} />
-            {/* <img className="rImg" src={store.selected.} /> */}
+            </div>
             {/* navigate to next question */}
             <Link to="/questionTwo">
                 <button className="btn rBtn">

@@ -49,9 +49,9 @@ const AnswerOne = () => {
         <div>
             {store.answer.map((content, id) => (
                 <div className="aContent" key={id}>
-                    <h4 onClick={() => handleSelected(content)}>
+                    <h6 onClick={() => handleSelected(content)}>
                         {content.content}
-                    </h4>
+                    </h6>
                 </div>
             ))}
             {/* navigate to response of selected answer */}

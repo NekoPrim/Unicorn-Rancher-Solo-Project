@@ -1,13 +1,3 @@
-.qImg {
-    border: 3px solid pink;
-    border-radius: 15px;
-    height: 600px;
-    left: 50%;
-    position: relative;
-    transform: translateX(-50%);
-    width: 600px;
-}
-
 .qTitle, .qContent {
     text-align: center;
 }

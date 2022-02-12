@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// worker Saga: will be fired on "CREATE_USER_BADGE" actions
 function* createUserAnswer(action) {
     console.log('in createUserAnswer', action.payload);
     const number = action.payload;
@@ -10,9 +10,7 @@ function* createUserAnswer(action) {
         // send data to router
         yield axios.post('/api/userAnswer', {number});
 
-    
-        // yield put({ type: 'SET_QUESTION', payload: response.data });
-    } catch (error) {
+        } catch (error) {
         console.error('Level get request failed!', error);
     }
 }

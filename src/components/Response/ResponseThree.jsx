@@ -16,6 +16,7 @@ const ResponseThree = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        // GET points data
         dispatch({ type: 'FETCH_POINTS' });
     }, []);
 
@@ -34,9 +35,35 @@ const ResponseThree = () => {
     const total = add(score);
     console.log('total', total);
 
-    const mybadge;
-    if (total = 0) {
+    // find badge number
+    const findBadge = () => {
+        let myBadge = 0;
+        if (total === 9) {
+            myBadge = 4;
+        }
+        else if (total >= 5) {
+            myBadge = 3;
+        }
+        else if (total >= 1) {
+            myBadge = 2;
+        }
+        else if (total === 0) {
+            myBadge = 1;
+        }
+        return myBadge;
+    }
+    
+    console.log('my badge number', findBadge(total));
 
+    // On click send data to badge saga
+    const addBadge = () => {
+        console.log('in addBadge');
+
+        dispatch({ type: 'SET_NEW_BADGE'});
+        dispatch({
+            type: 'CREATE_USER_BADGE',
+            payload: myBadge
+        });
     }
 
     return(
@@ -49,7 +76,7 @@ const ResponseThree = () => {
             </div>
             {/* navigate to badge component */}
             <Link to="/badge">
-                <button className="btn rBtn">
+                <button className="btn rBtn" onClick={addBadge}>
                     Finished!
                 </button>
             </Link>

@@ -7,6 +7,7 @@ import answer from './answer.reducer';
 import selected from './selected.reducer';
 import points from './points.reducer';
 import newBadge from './newBadge.reducer';
+import userBadge from './userBadge.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   selected, // will have selected answer (id, content, response, question_id, and points)
   points, // will have selected answer points
   newBadge, // will have new badge
+  userBadge, // will have id, name, image
 });
 
 export default rootReducer;

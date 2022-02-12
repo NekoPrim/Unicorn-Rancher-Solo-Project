@@ -29,4 +29,32 @@ router.post('/', (req, res) => {
         });
 });
 
+// Handles Ajax request for user badge
+router.get('/', (req, res) => {
+
+    // setup SQL command
+    const queryText = `
+        SELECT 
+            "badge"."id",
+            "badge"."name",
+            "badge"."image"
+        FROM "badge"
+        JOIN "user_badge"
+            ON "badge"."id" = "user_badge"."badge_id"
+        WHERE "user_badge"."user_id" = $1;
+    `;
+
+    const queryParams = [ req.user.id ];
+
+    // request data from question database
+    pool.query(queryText, queryParams)
+        .then((result) => {
+            console.log('points data', result.rows);
+            res.send(result.rows);
+        })
+        .catch((err) => {
+            console.log('badge pool GET error', err);
+        });
+});
+
 module.exports = router;

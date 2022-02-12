@@ -18,7 +18,7 @@ function* fetchQuestion(action) {
         // then
         yield put({ type: 'SET_QUESTION', payload: response.data });
     } catch (error) {
-        console.log('Level get request failed', error);
+        console.log('question GET request failed', error);
     }
 }
 

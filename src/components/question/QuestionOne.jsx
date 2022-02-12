@@ -57,7 +57,6 @@ const QuestionOne = () => {
             {store.question.map((content, id) => (
                 <div key={id}>
                     <h3 className="qContent">{content.content}</h3>
-                    <img className="qImg" src={content.question_image} />
                 </div>
             ))}
             {/* answer data */}

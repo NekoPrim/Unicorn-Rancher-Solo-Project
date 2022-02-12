@@ -16,6 +16,7 @@ const ResponseTwo = () => {
             <Level />
 
             <h2 className="rContent">{store.selected.response}</h2>
+            <img className="rImg" src={store.selected.question_image} />
             {/* navigate to next question */}
             <Link to="/questionThree">
                 <button className="btn rBtn">

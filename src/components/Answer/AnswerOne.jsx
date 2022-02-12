@@ -13,13 +13,26 @@ const AnswerOne = () => {
     // grab global variable
     const store = useReduxStore();
     console.log('selected', store.selected);
+    console.log('question', store.question);
     const answerId = store.selected.id;
+    const questionImage = store.question;
 
     // onClick capture selected answer
     const handleSelected = (content) => {
+        let myPic;
+        //
+        for (let pic of questionImage) {
+            myPic = pic.question_image
+        }
+        console.log('my pic', myPic);
+
+        const userResponse = {
+            ...content,
+            question_image: myPic
+        }
         dispatch({
             type: 'SET_SELECTED',
-            payload: content
+            payload: userResponse
         });
     }
 

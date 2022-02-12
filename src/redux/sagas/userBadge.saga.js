@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* createUserBadge(action) {
-    console.log('in createUserAnswer', action.payload);
+    console.log('in createUserBadge', action.payload);
     const number = action.payload;
 
     try {

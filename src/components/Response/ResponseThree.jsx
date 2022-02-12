@@ -53,16 +53,20 @@ const ResponseThree = () => {
         return myBadge;
     }
     
-    console.log('my badge number', findBadge(total));
+    const userBadge = findBadge(total);
+    console.log('userBadge', userBadge);
 
     // On click send data to badge saga
     const addBadge = () => {
         console.log('in addBadge');
 
-        dispatch({ type: 'SET_NEW_BADGE'});
+        dispatch({
+            type: 'SET_NEW_BADGE',
+            payload: userBadge
+        });
         dispatch({
             type: 'CREATE_USER_BADGE',
-            payload: myBadge
+            payload: userBadge
         });
     }
 

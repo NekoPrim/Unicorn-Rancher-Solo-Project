@@ -1,5 +1,6 @@
 import useReduxStore from '../../hooks/useReduxStore';
 
+import ProfileBadges from '../ProfileBadges/ProfileBadges';
 import './Profile.css'
 
 const Profile = () => {
@@ -17,6 +18,7 @@ const Profile = () => {
             </div>
             <div>
                 <h2 className="pBody">Your Badges!</h2>
+                <ProfileBadges />
             </div>
         </div>
     );

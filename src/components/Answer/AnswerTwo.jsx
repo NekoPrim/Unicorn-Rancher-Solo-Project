@@ -8,7 +8,6 @@ const AnswerTwo = () => {
 
     // setup dispatch and history
     const dispatch = useDispatch();
-    // const history = useHistory();
 
     // grab global variable
     const store = useReduxStore();
@@ -20,7 +19,7 @@ const AnswerTwo = () => {
     // onClick capture data
     const handleSelected = (content) => {
         let myPic;
-        //
+        // loop throu store.question to get question_image
         for (let pic of questionImage) {
             myPic = pic.question_image
         }
@@ -31,6 +30,7 @@ const AnswerTwo = () => {
             question_image: myPic
         }
 
+        // send data to selected reducer
         dispatch({
             type: 'SET_SELECTED',
             payload: userResponse
@@ -43,7 +43,6 @@ const AnswerTwo = () => {
             type: 'CREATE_USER_ANSWER',
             payload: answerId
         });
-        // history.push('/questionTwo');
     }
 
     return(

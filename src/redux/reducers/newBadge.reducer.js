@@ -1,6 +1,6 @@
-const selectedReducer = (state = [], action) => {
+const newBadgeReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_SELECTED':
+        case 'SET_NEW_BADGE':
             return action.payload;
         default:
             return state;
@@ -9,4 +9,4 @@ const selectedReducer = (state = [], action) => {
 
   // selected will be on the redux state at:
   // state.selected
-export default selectedReducer;
+export default newBadgeReducer;

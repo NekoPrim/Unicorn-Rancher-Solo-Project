@@ -18,13 +18,13 @@ const Badge = () => {
     const findNewBadge = (array) => {
         console.log('in findNewBadge');
 
-
+        let myBadge;
         for (let thisBadge of array) {
             if (thisBadge.id === newBadge) {
-                let myBadge = thisBadge;
-                return myBadge;
+                myBadge = thisBadge;
             }
         }
+        return myBadge;
     }
     const myNewBadge = findNewBadge(userBadge);
     console.log('new badge', myNewBadge)
@@ -41,13 +41,11 @@ const Badge = () => {
         <div>
             <Level />
             
-            <h1 className="bTitle">Congratulations!!!</h1>
-            {myNewBadge.map((my, id) => (
-                <div key={id}>
-                    <h2>{my.name}</h2>
-                    <img src={my.image}
-                </div>
-            ))}
+            <div>
+                <h1 className="bTitle">Congratulations!!!</h1>
+                <h2 className="bTitle">{myNewBadge.name}</h2>
+                <img className="bImg" src={myNewBadge.image} />
+            </div>
             <Link to='/home'>
                 <button className="btn bBtn">
                     Home

@@ -34,6 +34,11 @@ const ResponseThree = () => {
     const total = add(score);
     console.log('total', total);
 
+    const mybadge;
+    if (total = 0) {
+
+    }
+
     return(
         <div>
             {/* level data */}

@@ -18,7 +18,7 @@ const ResponseThree = () => {
     useEffect(() => {
         // GET points data
         dispatch({ type: 'FETCH_POINTS' });
-    }, []);
+    }, [dispatch]);
 
     // check user points
     console.log('user points', store.points);

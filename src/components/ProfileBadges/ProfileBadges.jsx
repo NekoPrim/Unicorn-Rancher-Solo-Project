@@ -21,7 +21,7 @@ const ProfileBadges = () => {
             .filter(e => arr[e]).map(e => arr[e]);      
 
         return unique;
-    }
+    } // https://stackoverflow.com/questions/37217953/removing-duplicate-array-values-and-then-storing-them-react
 
     console.log('filtered badges',getUnique(userBadges,'name'));
     const uniqueBadges = getUnique(userBadges,'name');

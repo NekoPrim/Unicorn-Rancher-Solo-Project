@@ -15,10 +15,10 @@ const Badge = () => {
     const newBadge = store.newBadge;
     const userBadge = store.userBadge;
 
+    let myBadge;
     const findNewBadge = (array) => {
         console.log('in findNewBadge');
 
-        let myBadge;
         for (let thisBadge of array) {
             if (thisBadge.id === newBadge) {
                 myBadge = thisBadge;

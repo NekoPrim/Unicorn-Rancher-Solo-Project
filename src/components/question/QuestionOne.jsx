@@ -41,7 +41,7 @@ const QuestionOne = () => {
 
         // DELETE user_answer at start of game
         dispatch({ type: 'DELETE_USER_ANSWER' })
-    }, []); // end useEffect
+    }, [dispatch]); // end useEffect
 
     // check question and answers
     console.log('question data', store.question);

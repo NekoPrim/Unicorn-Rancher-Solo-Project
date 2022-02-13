@@ -35,7 +35,7 @@ const QuestionThree = () => {
             type: 'FETCH_ANSWER',
             payload: random
         });
-    }, []);
+    }, [dispatch]);
 
     // check question and answers
     console.log('question data', store.question);

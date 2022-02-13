@@ -21,8 +21,8 @@ router.post('/', (req, res) => {
     // request data from question database
     pool.query(queryText, queryParams)
         .then((result) => {
-            // console.log('question data', result.rows);
-            // res.send(result.rows);
+            console.log('question data', result.rows);
+            res.send(result.rows);
         })
         .catch((err) => {
             console.log('question pool GET error', err);

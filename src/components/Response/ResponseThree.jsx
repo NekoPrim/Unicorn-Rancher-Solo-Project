@@ -39,16 +39,16 @@ const ResponseThree = () => {
     const findBadge = () => {
         let myBadge = 0;
         if (total === 9) {
-            myBadge = 4;
+            return myBadge = 4;
         }
         else if (total >= 5) {
-            myBadge = 3;
+            return myBadge = 3;
         }
         else if (total >= 1) {
-            myBadge = 2;
+            return myBadge = 2;
         }
         else if (total === 0) {
-            myBadge = 1;
+            return myBadge = 1;
         }
         return myBadge;
     }

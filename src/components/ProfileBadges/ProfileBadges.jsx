@@ -1,5 +1,7 @@
 import useReduxStore from '../../hooks/useReduxStore';
 
+import './ProfileBadges.css';
+
 const ProfileBadges = () => {
 
     // gain access to global variables
@@ -26,11 +28,11 @@ const ProfileBadges = () => {
 
     return(
         <div>
-            <h3>{uniqueBadges.length} out of 4</h3>
+            <h3 className="badgeNum">{uniqueBadges.length} out of 4</h3>
             {uniqueBadges.map((pic, id) => (
-                <div key={id}>
+                <div className="badgeArea" key={id}>
                     <h4>{pic.name}</h4>
-                    <img src={pic.image} />
+                    <img className="pbImg" src={pic.image} />
                 </div>
             ))}
         </div>

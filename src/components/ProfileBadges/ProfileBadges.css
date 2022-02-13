@@ -1,19 +1,19 @@
-.rContent {
+.badgeNum {
     text-align: center;
 }
 
-.rBtn {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.rImg {
+.pbImg {
     border: 3px solid pink;
     border-radius: 15px;
-    height: 400px;
+    height: 300px;
     left: 50%;
     position: relative;
     transform: translateX(-50%);
-    width: 500px;
+    width: 200px;
+}
+
+.badgeArea {
+    display: inline-block;
+    margin: 3rem;
+    text-align: center;
 }

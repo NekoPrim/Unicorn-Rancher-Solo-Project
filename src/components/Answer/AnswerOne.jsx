@@ -18,6 +18,10 @@ const AnswerOne = () => {
     // const answerId = store.selected.id;
     const questionImage = store.question;
 
+    const handleSelected = () => {
+        setSelected(content)
+    }
+
     // onClick POST selected data to database
     // onClick store selected answer in reducer
     const handleAnswer = () => {
@@ -50,9 +54,9 @@ const AnswerOne = () => {
         <div>
             {store.answer.map((content, id) => (
                 <div className="aContent" key={id}>
-                    <h6 onClick={() => setSelected(content)}>
+                    <h5 onClick={() => setSelected(content)}>
                         {content.content}
-                    </h6>
+                    </h5>
                 </div>
             ))}
             {/* navigate to response of selected answer */}

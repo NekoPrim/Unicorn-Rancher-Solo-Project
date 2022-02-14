@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Edit = () => {
 
@@ -36,6 +37,7 @@ const Edit = () => {
                     onChange={(e) => setNewPic(e.target.value)}
                     value={newPic}
                 />
+                <Link to='/profile'>
                 <button
                     type="submit"
                     disabled={!newPic}
@@ -44,6 +46,7 @@ const Edit = () => {
                 >
                     Update Pic
                 </button>
+                </Link>
 
                 <input
                     type="text"
@@ -51,6 +54,7 @@ const Edit = () => {
                     onChange={(e) => setNewName(e.target.value)}
                     value={newName}
                 />
+                <Link to='/profile'>
                 <button
                     type="submit"
                     disabled={!newName}
@@ -59,6 +63,7 @@ const Edit = () => {
                 >
                     Update Name
                 </button>
+                </Link>
         </div>
     );
 }

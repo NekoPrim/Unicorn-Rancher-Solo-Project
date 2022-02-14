@@ -47,12 +47,14 @@ const QuestionThree = () => {
             {/* level data */}
             <Level />
             
+            <div className="qArea">
             <h2 className="qTitle">Question 3</h2>
             {store.question.map((content, id) => (
                 <div key={id}>
                     <h3 className="qContent">{content.content}</h3>
                 </div>
             ))}
+            </div>
             {/* answer data */}
             <AnswerThree />
         </div>

@@ -58,6 +58,7 @@ Button
 
 .btn:hover {
   background-color: mediumvioletred;
+  color: #f2f2f2;
   text-decoration: none;
 }
 

@@ -12,6 +12,10 @@
     width: 200px;
 }
 
+.pH {
+    font-family: 'Luckiest Guy', cursive;
+}
+
 .pBtn {
     float: right;
     position: relative;
@@ -19,5 +23,6 @@
 }
 
 .pBody {
+    font-family: 'Luckiest Guy', cursive;
     text-align: center;
 }

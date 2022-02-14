@@ -1,8 +1,17 @@
 import useReduxStore from '../../hooks/useReduxStore';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import './ProfileBadges.css';
 
 const ProfileBadges = () => {
+
+    // setup dispatch
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_USER_BADGE' });
+    }, [dispatch]);
 
     // gain access to global variables
     const store = useReduxStore();
@@ -27,7 +36,7 @@ const ProfileBadges = () => {
     const uniqueBadges = getUnique(userBadges,'name');
 
     return(
-        <div>
+        <div className="profileBadgeArea">
             <h3 className="badgeNum">{uniqueBadges.length} out of 4</h3>
             {uniqueBadges.map((pic, id) => (
                 <div className="badgeArea" key={id}>

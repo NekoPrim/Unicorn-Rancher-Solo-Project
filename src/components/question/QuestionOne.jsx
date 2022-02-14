@@ -40,7 +40,10 @@ const QuestionOne = () => {
         });
 
         // DELETE user_answer at start of game
-        dispatch({ type: 'DELETE_USER_ANSWER' })
+        dispatch({ type: 'DELETE_USER_ANSWER' });
+
+        // GET badges
+        dispatch({ type: 'FETCH_BADGE' });
     }, [dispatch]); // end useEffect
 
     // check question and answers

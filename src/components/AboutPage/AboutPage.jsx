@@ -1,4 +1,5 @@
 import React from 'react';
+import './AboutPage.css';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -7,7 +8,7 @@ import React from 'react';
 
 function AboutPage() {
   return (
-    <div className="container">
+    <div className="aboutContainer">
       <div>
         <p>
           Do you wish that life was more simple? Do you feel like you should

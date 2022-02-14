@@ -11,17 +11,9 @@ const Badge = () => {
     // gain access to global variables
     const store = useReduxStore();
     console.log('user new badge', store.newBadge);
-    console.log('user badges', store.userBadge);
+    console.log('badges', store.badge);
     const newBadge = store.newBadge;
-    const userBadge = store.userBadge;
-
-    // setup dispatch
-    const dispatch = useDispatch();
-
-    // make sure have latest badges
-    useEffect(() => {
-        dispatch({ type: 'FETCH_USER_BADGE' });
-    }, [dispatch]);
+    const Badge = store.badge;
 
     let myBadge;
     const findNewBadge = (array) => {
@@ -37,7 +29,7 @@ const Badge = () => {
         return myBadge;
     }
     console.log('myBadge', myBadge);
-    const myNewBadge = findNewBadge(userBadge);
+    const myNewBadge = findNewBadge(Badge);
     console.log('new badge', myNewBadge)
 
     // // setup dispatch

@@ -77,8 +77,8 @@ const ResponseThree = () => {
             {/* level data */}
             <Level />
             <div>
-            <h2 className="rContent">{store.selected.response}</h2>
             <img className="rImg" src={store.selected.question_image} />
+            <h2 className="rContent">{store.selected.response}</h2>
             </div>
             {/* navigate to badge component */}
             <Link to="/badge">

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './InfoPage.css';
+
 // This is one of our simplest components
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -7,7 +9,7 @@ import React from 'react';
 
 function InfoPage() {
   return (
-    <div className="container">
+    <div className="infoContainer">
       <h2>Game</h2>
       <p>
         Unicorn rancher is a question based game. Each question is 

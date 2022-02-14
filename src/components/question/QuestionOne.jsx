@@ -40,7 +40,10 @@ const QuestionOne = () => {
         });
 
         // DELETE user_answer at start of game
-        dispatch({ type: 'DELETE_USER_ANSWER' })
+        dispatch({ type: 'DELETE_USER_ANSWER' });
+
+        // GET badges
+        dispatch({ type: 'FETCH_BADGE' });
     }, [dispatch]); // end useEffect
 
     // check question and answers
@@ -52,13 +55,15 @@ const QuestionOne = () => {
         <div>
             {/* level data */}
             <Level />
-                
+            
+            <div className="qArea">
             <h2 className="qTitle">Question 1</h2>
             {store.question.map((content, id) => (
                 <div key={id}>
                     <h3 className="qContent">{content.content}</h3>
                 </div>
             ))}
+            </div>
             {/* answer data */}
             <AnswerOne />
         </div>

@@ -2,7 +2,8 @@
     background-image: url('../../../public/images/sparkles-stars.gif');
     background-size: 5%;
     border-bottom: 3px solid mediumvioletred;
-    color: #f8f8f8;
+    color: mediumvioletred;
+    font-family: 'Luckiest Guy', cursive;
     margin: -30px 0 0 0;
     padding: 20px 0 20px 0;
     text-align: center;

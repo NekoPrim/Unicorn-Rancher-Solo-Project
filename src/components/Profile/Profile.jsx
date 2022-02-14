@@ -15,7 +15,7 @@ const Profile = () => {
         <div>
             <div className="pHeader">
             <img className="pImg" src={store.user.profile_image} />
-            <h2>User Name: {store.user.username}</h2>
+            <h2 className="pH">User Name: {store.user.username}</h2>
             <Link to="/edit">
                 <button className="btn pBtn">
                     Edit

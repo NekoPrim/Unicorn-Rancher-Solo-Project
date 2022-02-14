@@ -8,6 +8,7 @@ import answerSaga from './answer.saga';
 import userAnswerSaga from './userAnswer.saga';
 import pointsSaga from './points.saga';
 import userBadgeSaga from './userBadge.saga';
+import badgeSaga from './Badge.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -20,12 +21,13 @@ export default function* rootSaga() {
   yield all([
     loginSaga(), // login saga is now registered
     registrationSaga(),
-    userSaga(),
+    userSaga(), // GET and PUT user
     levelSaga(), // GET levels
     questionSaga(), // GET questions
     answerSaga(), // GET answers
-    userAnswerSaga(), // POST user answer and DELETE user answer
+    userAnswerSaga(), // POST and DELETE user answer
     pointsSaga(), // GET points
-    userBadgeSaga(), // POST user badge
+    userBadgeSaga(), // GET and POST user badge
+    badgeSaga(), // GET badge
   ]);
 }

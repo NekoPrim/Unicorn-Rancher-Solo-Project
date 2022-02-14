@@ -15,6 +15,7 @@ const answerRouter = require('./routes/answer.router');
 const userAnswerRouter = require('./routes/userAnswer.router');
 const pointsRouter = require('./routes/points.router');
 const userBadgeRouter = require('./routes/userBadge.router');
+const badgeRouter = require('./routes/badge.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -35,6 +36,7 @@ app.use('/api/answer', answerRouter);
 app.use('/api/userAnswer', userAnswerRouter);
 app.use('/api/points', pointsRouter);
 app.use('/api/userBadge', userBadgeRouter);
+app.use('/api/badge', badgeRouter);
 
 // Serve static files
 app.use(express.static('build'));

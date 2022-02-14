@@ -11,7 +11,7 @@ function* createUserBadge(action) {
         yield axios.post('/api/userBadge', {number});
 
         yield put({ type: 'SET_USER_BADGE', payload: response.data });
-        fetchUserBadge();
+        yield put({ type: 'FETCH_USER_BADGE' });
     } catch (error) {
         console.error('userBadge POST request failed!', error);
     }

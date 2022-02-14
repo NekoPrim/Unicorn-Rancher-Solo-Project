@@ -24,8 +24,42 @@ function* fetchUser() {
   }
 }
 
+function* updatePic(action) {
+  try {
+
+    yield axios.put('/api/user/pic', { profile_image: action.payload});
+    console.log('update user pic saga', action.payload);
+
+    // now that the session has given us a user object
+    // with an id and username set the client-side user object to let
+    // the client-side code know the user is logged in
+    yield put({ type: 'FETCH_USER' });
+  } catch (error) {
+    console.log('User get request failed', error);
+  }
+}
+
+function* updateUsername(action) {
+  try {
+
+    yield axios.put('/api/user/username', { username: action.payload});
+    console.log('update username sage', action.payload);
+
+    // now that the session has given us a user object
+    // with an id and username set the client-side user object to let
+    // the client-side code know the user is logged in
+    yield put({ type: 'FETCH_USER' });
+  } catch (error) {
+    console.log('User get request failed', error);
+  }
+}
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+
+  yield takeLatest('UPDATE_PIC', updatePic);
+
+  yield takeLatest('UPDATE_USERNAME', updateUsername);
 }
 
 export default userSaga;

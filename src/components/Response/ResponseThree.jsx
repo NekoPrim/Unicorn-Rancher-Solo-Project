@@ -72,6 +72,7 @@ const ResponseThree = () => {
         });
     }
 
+    // append seleceted answer response to the DOM
     return(
         <div>
             {/* level data */}

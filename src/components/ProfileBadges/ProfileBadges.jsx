@@ -18,6 +18,7 @@ const ProfileBadges = () => {
     const userBadges = store.userBadge;
     console.log('user badges', userBadges);
 
+    // funciton to filter out duplicates in user badge
     function getUnique(arr, index) {
 
         const unique = arr
@@ -35,6 +36,7 @@ const ProfileBadges = () => {
     console.log('filtered badges',getUnique(userBadges,'name'));
     const uniqueBadges = getUnique(userBadges,'name');
 
+    // render awarded badges to the DOM
     return(
         <div className="profileBadgeArea">
             <h3 className="badgeNum">{uniqueBadges.length} out of 4</h3>

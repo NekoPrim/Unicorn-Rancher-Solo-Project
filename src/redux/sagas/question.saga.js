@@ -22,6 +22,7 @@ function* fetchQuestion(action) {
     }
 }
 
+// watch for functions
 function* questionSaga() {
     yield takeLatest('FETCH_QUESTION', fetchQuestion);
 }

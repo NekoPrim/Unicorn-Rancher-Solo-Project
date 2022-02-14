@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
-// Handles Ajax request for questions
+// Handles Ajax request for points
 router.get('/', (req, res) => {
 
     // setup SQL command
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
     const queryParams = [ req.user.id ];
 
-    // request data from question database
+    // request data from points database
     pool.query(queryText, queryParams)
         .then((result) => {
             console.log('points data', result.rows);

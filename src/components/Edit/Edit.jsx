@@ -12,7 +12,7 @@ const Edit = () => {
 
     // onClick PUT username
     const editPic = () => {
-        // send data to database
+        // send data to user saga
         dispatch({
             type: 'UPDATE_PIC',
             payload: newPic
@@ -22,7 +22,7 @@ const Edit = () => {
     // onClick PUT profile_image
     const editName = () => {
         console.log('in editName', newName);
-        // send data to database
+        // send data to user saga
         dispatch({
             type:'UPDATE_USERNAME',
             payload: newName
@@ -31,12 +31,15 @@ const Edit = () => {
 
     return(
         <div>
+            {/* enter in new profile pic */}
                 <input
                     type="text"
                     placeholder="new profile pic url"
                     onChange={(e) => setNewPic(e.target.value)}
                     value={newPic}
                 />
+                {/* navigate to profile page */}
+                {/* can only access if value is in input */}
                 <Link to='/profile'>
                 <button
                     type="submit"
@@ -54,6 +57,8 @@ const Edit = () => {
                     onChange={(e) => setNewName(e.target.value)}
                     value={newName}
                 />
+                {/* navigate to profile page */}
+                {/* can only be accessed if value in input */}
                 <Link to='/profile'>
                 <button
                     type="submit"

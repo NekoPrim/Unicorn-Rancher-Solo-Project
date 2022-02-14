@@ -28,11 +28,13 @@ const AnswerTwo = () => {
         }
         console.log('my pic', myPic);
 
+        // setup data to send
         const userResponse = {
             ...selected,
             question_image: myPic
         }
 
+        // send datat to user saga
         dispatch({
             type: 'CREATE_USER_ANSWER',
             payload: answerId
@@ -46,6 +48,7 @@ const AnswerTwo = () => {
 
     return(
         <div>
+            {/* loop through answers */}
             {store.answer.map((content, id) => (
                 <div className="aContent" key={id}>
                     <h6 onClick={() => setSelected(content)}>
@@ -55,7 +58,11 @@ const AnswerTwo = () => {
             ))}
             {/* navigate to response of selected answer */}
             <Link to="/responseTwo">
-                <button className="btn aBtn" onClick={handleAnswer}>
+                <button 
+                    className="btn aBtn" 
+                    onClick={handleAnswer}
+                    disabled={!selected}
+                >
                     Next Question
                 </button>
             </Link>

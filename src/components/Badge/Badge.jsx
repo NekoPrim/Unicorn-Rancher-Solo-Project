@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import useReduxStore from '../../hooks/useReduxStore';
 
@@ -15,10 +14,12 @@ const Badge = () => {
     const newBadge = store.newBadge;
     const Badge = store.badge;
 
+    // find what badge user achieved
     let myBadge;
     const findNewBadge = (array) => {
         console.log('in findNewBadge');
 
+        // loop through badge reducer to match id to new badge number
         for (let thisBadge of array) {
             console.log('array', array);
             console.log('thisBadge', thisBadge)
@@ -40,6 +41,7 @@ const Badge = () => {
     //     dispatch({ type: 'FETCH_USER_BADGE' });
     // }, []);
 
+    // render new badge to DOM
     return(
         <div>
             <Level />
@@ -49,6 +51,7 @@ const Badge = () => {
                 <h2 className="bTitle">{myNewBadge.name}</h2>
                 <img className="bImg" src={myNewBadge.image} />
             </div>
+            {/* navigate to home page */}
             <Link to='/home'>
                 <button className="btn bBtn">
                     Home

@@ -33,6 +33,7 @@ function* fetchUserBadge() {
     }
 }
 
+// watch for functions
 function* userBadgeSaga() {
     yield takeLatest('CREATE_USER_BADGE', createUserBadge);
     

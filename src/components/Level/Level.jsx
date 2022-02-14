@@ -4,8 +4,11 @@ import './Level.css';
 
 const Level = () => {
 
+    // gain access to global variables
     const store = useReduxStore();
     console.log('level data', store.level);
+
+    // render level name and number to DOM
     return(
         <div className="levelTitle">
             {store.level.map((number, id) => (

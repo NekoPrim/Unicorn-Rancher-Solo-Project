@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
-// Handles Ajax request for questions
+// Handles Ajax request for answer
 router.get('/:id', (req, res) => {
     console.log('answer req.params', req.params.id);
 
@@ -15,7 +15,7 @@ router.get('/:id', (req, res) => {
 
     const queryParams = [ req.params.id ];
 
-    // request data from question database
+    // request data from answer database
     pool.query(queryText, queryParams)
         .then((result) => {
             console.log('answer data', result.rows);

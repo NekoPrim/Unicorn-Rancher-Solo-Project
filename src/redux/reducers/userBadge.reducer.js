@@ -7,6 +7,6 @@ const userBadgeReducer = (state = [], action) => {
     }
 };
 
-  // points will be on the redux state at:
-  // state.points
+  // userBadge will be on the redux state at:
+  // state.userBadge
 export default userBadgeReducer;

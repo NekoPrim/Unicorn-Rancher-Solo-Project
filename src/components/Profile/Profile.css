@@ -17,9 +17,8 @@
 }
 
 .pBtn {
-    float: right;
-    position: relative;
-    margin: 5rem 10rem 0 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .pBody {

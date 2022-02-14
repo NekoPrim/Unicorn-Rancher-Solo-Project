@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 import { Link } from 'react-router-dom';
@@ -8,16 +9,18 @@ const AnswerTwo = () => {
 
     // setup dispatch and history
     const dispatch = useDispatch();
+    const [selected, setSelected] = useState('');
 
-    // grab global variable
     const store = useReduxStore();
     console.log('selected', store.selected);
     console.log('question', store.question);
-    const answerId = store.selected.id;
+    // const answerId = store.selected.id;
     const questionImage = store.question;
 
-    // onClick capture data
-    const handleSelected = (content) => {
+    // onClick POST selected data to database
+    // onClick store selected answer in reducer
+    const handleAnswer = () => {
+        let answerId = selected.id
         let myPic;
         // loop throu store.question to get question_image
         for (let pic of questionImage) {
@@ -26,10 +29,14 @@ const AnswerTwo = () => {
         console.log('my pic', myPic);
 
         const userResponse = {
-            ...content,
+            ...selected,
             question_image: myPic
         }
 
+        dispatch({
+            type: 'CREATE_USER_ANSWER',
+            payload: answerId
+        });
         // send data to selected reducer
         dispatch({
             type: 'SET_SELECTED',
@@ -37,19 +44,11 @@ const AnswerTwo = () => {
         });
     }
 
-    // onClick POST selected data to database
-    const handleAnswer = () => {
-        dispatch({
-            type: 'CREATE_USER_ANSWER',
-            payload: answerId
-        });
-    }
-
     return(
         <div>
             {store.answer.map((content, id) => (
                 <div className="aContent" key={id}>
-                    <h6 onClick={() => handleSelected(content)}>
+                    <h6 onClick={() => setSelected(content)}>
                         {content.content}
                     </h6>
                 </div>

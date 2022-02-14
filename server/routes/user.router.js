@@ -47,4 +47,60 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+router.put('/pic', (req, res) => {
+  console.log('user pic PUT request', req.body);
+  console.log('user id PUT request', req.user.id)
+
+  // setup SQL command
+  const queryText = `
+    UPDATE "user"
+    SET "profile_image" = $1
+    WHERE "id" = $2;
+  `;
+
+  const queryParams = [
+    req.body.profile_image,
+    req.user.id
+  ];
+
+  // send command to database
+  pool.query(queryText, queryParams)
+    .then(() => {
+      console.log('your so good at changing things!')
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('pool username PUT ERROR!', err);
+      res.sendStatus(500);
+    });
+});
+
+router.put('/username', (req, res) => {
+  console.log('username PUT request', req.body);
+  console.log('user id PUT request', req.user.id)
+
+  // setup SQL command
+  const queryText = `
+    UPDATE "user"
+    SET "username" = $1
+    WHERE "id" = $2;
+  `;
+
+  const queryParams = [
+    req.body.username,
+    req.user.id
+  ];
+
+  // send command to database
+  pool.query(queryText, queryParams)
+    .then(() => {
+      console.log('your so good at changing things!')
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('pool username PUT ERROR!', err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;

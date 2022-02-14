@@ -28,6 +28,7 @@ import QuestionThree from '../Question/QuestionThree';
 import ResponseThree from '../Response/ResponseThree';
 import Badge from '../Badge/Badge';
 import Profile from '../Profile/Profile';
+import Edit from '../Edit/Edit';
 import './App.css';
 
 function App() {
@@ -140,6 +141,14 @@ function App() {
             path="/Profile"
           >
             <Profile />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/edit"
+          >
+            <Edit />
           </ProtectedRoute>
 
           <Route

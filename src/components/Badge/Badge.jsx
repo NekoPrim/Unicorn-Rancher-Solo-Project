@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import useReduxStore from '../../hooks/useReduxStore';
 
@@ -15,17 +15,28 @@ const Badge = () => {
     const newBadge = store.newBadge;
     const userBadge = store.userBadge;
 
+    // setup dispatch
+    const dispatch = useDispatch();
+
+    // make sure have latest badges
+    useEffect(() => {
+        dispatch({ type: 'FETCH_USER_BADGE' });
+    }, [dispatch]);
+
+    let myBadge;
     const findNewBadge = (array) => {
         console.log('in findNewBadge');
 
-        let myBadge;
         for (let thisBadge of array) {
+            console.log('array', array);
+            console.log('thisBadge', thisBadge)
             if (thisBadge.id === newBadge) {
                 myBadge = thisBadge;
             }
         }
         return myBadge;
     }
+    console.log('myBadge', myBadge);
     const myNewBadge = findNewBadge(userBadge);
     console.log('new badge', myNewBadge)
 

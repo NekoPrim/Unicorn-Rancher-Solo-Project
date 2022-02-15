@@ -47,6 +47,7 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+// handles Ajax request for updating profile pic
 router.put('/pic', (req, res) => {
   console.log('user pic PUT request', req.body);
   console.log('user id PUT request', req.user.id)
@@ -63,7 +64,7 @@ router.put('/pic', (req, res) => {
     req.user.id
   ];
 
-  // send command to database
+  // send command to user database
   pool.query(queryText, queryParams)
     .then(() => {
       console.log('your so good at changing things!')
@@ -75,6 +76,7 @@ router.put('/pic', (req, res) => {
     });
 });
 
+// handles Ajax request for updating username
 router.put('/username', (req, res) => {
   console.log('username PUT request', req.body);
   console.log('user id PUT request', req.user.id)
@@ -91,7 +93,7 @@ router.put('/username', (req, res) => {
     req.user.id
   ];
 
-  // send command to database
+  // send command to user database
   pool.query(queryText, queryParams)
     .then(() => {
       console.log('your so good at changing things!')

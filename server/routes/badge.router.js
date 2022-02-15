@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
-// Handles Ajax request for user information if user is authenticated
+// Handles Ajax request for badge
 router.get('/', (req, res) => {
 
     // setup SQL command

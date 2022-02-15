@@ -17,6 +17,7 @@ function* fetchpoints() {
     }
 }
 
+// watch for functions
 function* pointsSaga() {
     yield takeLatest('FETCH_POINTS', fetchpoints);
 }

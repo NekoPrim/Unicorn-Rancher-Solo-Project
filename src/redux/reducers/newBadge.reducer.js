@@ -7,6 +7,6 @@ const newBadgeReducer = (state = [], action) => {
     }
 };
 
-  // selected will be on the redux state at:
-  // state.selected
+  // badge number will be on the redux state at:
+  // state.newBadge
 export default newBadgeReducer;

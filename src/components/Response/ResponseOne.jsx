@@ -10,6 +10,7 @@ const ResponseOne = () => {
     const store = useReduxStore();
     console.log('selected answer', store.selected);
 
+    // append seleceted answer response to the DOM
     return(
         <div>
             {/* level data */}

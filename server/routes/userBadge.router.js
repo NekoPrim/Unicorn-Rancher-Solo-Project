@@ -46,7 +46,7 @@ router.get('/', (req, res) => {
 
     const queryParams = [ req.user.id ];
 
-    // request data from question database
+    // request data from user_badge database
     pool.query(queryText, queryParams)
         .then((result) => {
             console.log('points data', result.rows);

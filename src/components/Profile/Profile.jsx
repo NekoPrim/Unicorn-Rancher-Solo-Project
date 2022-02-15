@@ -14,15 +14,17 @@ const Profile = () => {
     return(
         <div>
             <div className="pHeader">
-            <img className="pImg" src={store.user.profile_image} />
-            <h2 className="pH">User Name: {store.user.username}</h2>
+                <img className="pImg" src={store.user.profile_image} />
+                <h2 className="pH">User Name: {store.user.username}</h2>
+            </div>
+            {/* navigate to edit page */}
             <Link to="/edit">
                 <button className="btn pBtn">
                     Edit
                 </button>
             </Link>
-            </div>
             <div>
+                {/* user badges component */}
                 <h2 className="pBody">Your Badges!</h2>
                 <ProfileBadges />
             </div>

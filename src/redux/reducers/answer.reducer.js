@@ -7,6 +7,6 @@ const answerReducer = (state = [], action) => {
     }
 };
 
-  // level will be on the redux state at:
-  // state.level
+  // answer will be on the redux state at:
+  // state.answer
 export default answerReducer;

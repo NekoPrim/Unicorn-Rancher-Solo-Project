@@ -7,7 +7,7 @@ import './Answer.css';
 
 const AnswerOne = () => {
 
-    // setup dispatch and 
+    // setup dispatch and useState
     const dispatch = useDispatch();
     const [selected, setSelected] = useState('');
 
@@ -17,10 +17,6 @@ const AnswerOne = () => {
     console.log('question', store.question);
     // const answerId = store.selected.id;
     const questionImage = store.question;
-
-    const handleSelected = () => {
-        setSelected(content)
-    }
 
     // onClick POST selected data to database
     // onClick store selected answer in reducer
@@ -33,11 +29,13 @@ const AnswerOne = () => {
         }
         console.log('my pic', myPic);
 
+        // setup data to send
         const userResponse = {
             ...selected,
             question_image: myPic
         }
 
+        // send data to user saga
         dispatch({
             type: 'CREATE_USER_ANSWER',
             payload: answerId
@@ -52,6 +50,7 @@ const AnswerOne = () => {
     // render answers from question one to the DOM
     return(
         <div>
+            {/* loop through answers */}
             {store.answer.map((content, id) => (
                 <div className="aContent" key={id}>
                     <h5 onClick={() => setSelected(content)}>
@@ -61,7 +60,11 @@ const AnswerOne = () => {
             ))}
             {/* navigate to response of selected answer */}
             <Link to="/responseOne">
-                <button className="btn aBtn" onClick={handleAnswer}>
+                <button 
+                    className="btn aBtn" 
+                    onClick={handleAnswer}
+                    disabled={!selected}
+                >
                     Response
                 </button>
             </Link>

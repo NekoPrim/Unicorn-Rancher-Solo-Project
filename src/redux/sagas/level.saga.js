@@ -19,6 +19,7 @@ function* fetchLevel() {
     }
 }
 
+// watch for functions
 function* levelSaga() {
     yield takeLatest('FETCH_LEVEL', fetchLevel);
 }

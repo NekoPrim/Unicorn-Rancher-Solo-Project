@@ -8,5 +8,5 @@ const questionReducer = (state = [], action) => {
 };
 
   // question will be on the redux state at:
-  // state.level
+  // state.question
 export default questionReducer;

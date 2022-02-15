@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
-// Handles Ajax request for user information if user is authenticated
+// Handles Ajax request for level
 router.get('/', rejectUnauthenticated, (req, res) => {
 
     // setup SQL command

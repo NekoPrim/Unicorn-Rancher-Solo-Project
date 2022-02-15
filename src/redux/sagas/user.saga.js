@@ -54,6 +54,16 @@ function* updateUsername(action) {
   }
 }
 
+function* deleteUserProfile() {
+  try {
+
+    // send data to user router
+    yield axios.delete('/api/user');
+  } catch (error) {
+    console.log('User delete request failed', error);
+  }
+}
+
 // watch for functions
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
@@ -61,6 +71,8 @@ function* userSaga() {
   yield takeLatest('UPDATE_PIC', updatePic);
 
   yield takeLatest('UPDATE_USERNAME', updateUsername);
+
+  yield takeLatest('DELETE_USER_PROFILE', deleteUserProfile);
 }
 
 export default userSaga;

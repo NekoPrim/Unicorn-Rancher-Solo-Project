@@ -14,3 +14,11 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+.cont {
+    color: pink;
+}
+
+.cont2 {
+    color: mediumvioletred;
+}

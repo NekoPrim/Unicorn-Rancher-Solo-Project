@@ -49,13 +49,22 @@ const AnswerThree = () => {
     return(
         <div>
             {/* loop through answers */}
-            {store.answer.map((content, id) => (
-                <div className="aContent" key={id}>
-                    <h6 onClick={() => setSelected(content)}>
-                        {content.content}
-                    </h6>
-                </div>
-            ))}
+            {store.answer.map((content, id) =>  {
+                return (
+                    <div className="aContent" onClick={() => setSelected(content)} key={id}>
+                        {/* // make this its own component */}
+                        {selected.content === content.content
+                            ?
+                            <h5 className="cont2">
+                                {content.content}
+                            </h5>
+                            :
+                            <h5 className="cont">
+                                {content.content}
+                            </h5>}
+                    </div>
+                )
+            })}
             {/* navigate to response of selected answer */}
             <Link to="/responseThree">
                 <button 

@@ -105,4 +105,26 @@ router.put('/username', (req, res) => {
     });
 });
 
+router.delete('/', (req, res) => {
+  console.log('in router delete user id', req.user.id);
+
+  // setup SQL command
+  const queryText = `
+    DELETE FROM "user"
+    WHERE "id" = $1;
+  `;
+
+  const queryParams = [ req.user.id ];
+
+  // send command to user database
+  pool.query(queryText, queryParams)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log('pool user DELETE ERROR!', err);
+      res.sendStatus(500);
+    })
+});
+
 module.exports = router;

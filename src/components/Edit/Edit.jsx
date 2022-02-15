@@ -37,6 +37,8 @@ const Edit = () => {
 
         // call function in user saga
         dispatch({ type: 'DELETE_USER_PROFILE'});
+        // logout
+        dispatch({ type: 'LOGOUT' })
     }
 
     return(
@@ -94,7 +96,7 @@ const Edit = () => {
             <button
                 type="submit"
                 onClick={deleteProfile}
-                className="butn form"
+                className="btn form"
             >
                 Delete Profile
             </button>

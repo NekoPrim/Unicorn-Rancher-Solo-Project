@@ -13,7 +13,7 @@ const AnswerOne = () => {
 
     // grab global variable
     const store = useReduxStore();
-    console.log('selected', store.selected);
+    console.log('answer', selected);
     console.log('question', store.question);
     // const answerId = store.selected.id;
     const questionImage = store.question;
@@ -48,20 +48,29 @@ const AnswerOne = () => {
     }
 
     // render answers from question one to the DOM
-    return(
+    return (
         <div>
             {/* loop through answers */}
-            {store.answer.map((content, id) => (
-                <div className="aContent" key={id}>
-                    <h5 onClick={() => setSelected(content)}>
-                        {content.content}
-                    </h5>
-                </div>
-            ))}
+            {store.answer.map((content, id) =>  {
+                return (
+                    <div className="aContent" onClick={() => setSelected(content)} key={id}>
+                        {/* // make this its own component */}
+                        {selected.content === content.content
+                            ?
+                            <h5 className="cont2">
+                                {content.content}
+                            </h5>
+                            :
+                            <h5 className="cont">
+                                {content.content}
+                            </h5>}
+                    </div>
+                )
+            })}
             {/* navigate to response of selected answer */}
             <Link to="/responseOne">
-                <button 
-                    className="btn aBtn" 
+                <button
+                    className="btn aBtn"
                     onClick={handleAnswer}
                     disabled={!selected}
                 >

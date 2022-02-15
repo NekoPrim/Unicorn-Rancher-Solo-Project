@@ -91,7 +91,7 @@ VALUES
 ( 3, 'Tell the unicorns a sob story about how you’re so lonely at your ranch.', 'You’re too pathetic for the unicorns.', 0 ),
 ( 3, 'Ask if any of the unicorns would like to learn how to fish.', 'A couple unicorns would love to learn how to fish.', 2 ),
 ( 3, 'Cast your rod and try to hook some unicorns.', 'You catch one but they’re not very thrilled.', 1 ),
-( 4, 'Ask if they would like to play pool or darts.', 'Unicorns don’t have hands and now you all feel awkward….', 1 ),
+( 4, 'Ask if they would like to play pool or darts.', 'Unicorns don’t have hands and now you all feel awkward….', 0 ),
 ( 4, 'Offer a round of drinks!', 'The drinks lower their inhibitions and they agree to join your ranch.', 3 ),
 ( 4, 'Offer some bar peanuts to them.', 'One unicorn obliges.', 1 ),
 ( 4, 'Show off some dance moves on the dance floor.', 'You impressed a couple of unicorns and they join you on the floor.', 2 ),

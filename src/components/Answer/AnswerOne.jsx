@@ -53,7 +53,7 @@ const AnswerOne = () => {
             {/* loop through answers */}
             {store.answer.map((content, id) => (
                 <div className="aContent" key={id}>
-                    <h5 onClick={() => setSelected(content)} style={{"color":"mediumvioletred"}}>
+                    <h5 onClick={() => setSelected(content)}>
                         {content.content}
                     </h5>
                 </div>

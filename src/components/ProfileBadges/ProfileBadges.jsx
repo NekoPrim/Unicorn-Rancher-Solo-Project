@@ -38,8 +38,10 @@ const ProfileBadges = () => {
 
     // render awarded badges to the DOM
     return(
+        <>
+        <h3 className="badgeNum">{uniqueBadges.length} out of 4</h3>
         <div className="profileBadgeArea">
-            <h3 className="badgeNum">{uniqueBadges.length} out of 4</h3>
+            {/* <h3 className="badgeNum">{uniqueBadges.length} out of 4</h3> */}
             {uniqueBadges.map((pic, id) => (
                 <div className="badgeArea" key={id}>
                     <h4>{pic.name}</h4>
@@ -47,6 +49,7 @@ const ProfileBadges = () => {
                 </div>
             ))}
         </div>
+        </>
     );
 }
 

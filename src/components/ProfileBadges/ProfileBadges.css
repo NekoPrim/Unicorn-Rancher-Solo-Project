@@ -2,7 +2,9 @@
     background-color: honeydew;
     border: 3px solid pink;
     border-radius: 20px;
+    display: flex;
     height: 35rem;
+    justify-content: space-around;
     margin: 0 10rem 0 10rem;
 }
 
@@ -13,15 +15,16 @@
 .pbImg {
     border: 3px solid pink;
     border-radius: 15px;
+    /* display: flex; */
     height: 300px;
-    left: 50%;
-    position: relative;
-    transform: translateX(-50%);
+    /* justify-content: space-around; */
+    /* left: 50%; */
+    /* position: relative; */
+    /* transform: translateX(-50%); */
     width: 200px;
 }
 
 .badgeArea {
     display: inline-block;
-    margin: 2rem;
-    text-align: center;
+    /* text-align: center; */
 }

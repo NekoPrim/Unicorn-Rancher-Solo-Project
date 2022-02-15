@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
+import Swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -35,10 +36,34 @@ const Edit = () => {
     const deleteProfile = () => {
         console.log('in deleteProfile');
 
-        // call function in user saga
-        dispatch({ type: 'DELETE_USER_PROFILE'});
-        // logout
-        dispatch({ type: 'LOGOUT' })
+        // alert before del
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "No back-sies",
+            icon: 'warning',
+            backgroundColor: 'honeydew',
+            showCancelButton: true,
+            confirmButtonColor: 'green',
+            cancelButtonColor: 'mediumvioletred',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your no longer a unicorn rancher.',
+                    'success',
+                );
+                // call function in user saga
+                dispatch({ type: 'DELETE_USER_PROFILE'});
+                    // logout
+                dispatch({ type: 'LOGOUT' });
+            }
+        });
+
+        // // call function in user saga
+        // dispatch({ type: 'DELETE_USER_PROFILE'});
+        // // logout
+        // dispatch({ type: 'LOGOUT' });
     }
 
     return(

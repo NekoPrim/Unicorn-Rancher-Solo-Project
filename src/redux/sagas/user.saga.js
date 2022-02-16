@@ -64,6 +64,22 @@ function* deleteUserProfile() {
   }
 }
 
+// worker Saga: will be fired on "UPDATE_USERNAME" actions
+function* fetchAllUsers() {
+  try {
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    };
+    const response = yield axios.get('/api/user/allUsers', config);
+    console.log('All user response', response.data);
+
+    yield put({ type: 'SET_ALL_USERS', payload: response.data});
+  } catch (error) {
+    console.log('All user GET request failed', error);
+  }
+} 
+
 // watch for functions
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
@@ -73,6 +89,8 @@ function* userSaga() {
   yield takeLatest('UPDATE_USERNAME', updateUsername);
 
   yield takeLatest('DELETE_USER_PROFILE', deleteUserProfile);
+
+  yield takeLatest('FETCH_ALL_USERS', fetchAllUsers);
 }
 
 export default userSaga;

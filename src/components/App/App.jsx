@@ -29,6 +29,7 @@ import ResponseThree from '../Response/ResponseThree';
 import Badge from '../Badge/Badge';
 import Profile from '../Profile/Profile';
 import Edit from '../Edit/Edit';
+import Admin from '../Admin/Admin';
 import './App.css';
 
 function App() {
@@ -149,6 +150,14 @@ function App() {
             path="/edit"
           >
             <Edit />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/admin"
+          >
+            <Admin />
           </ProtectedRoute>
 
           <Route
@@ -299,6 +308,20 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/Profile" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/admin"
+          >
+            {(user.authLevel === 'ADMIN') ?
+              // If the user is admin, 
+              // redirect them to the /admin page
+              <Redirect to="/admin" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

@@ -9,6 +9,7 @@ import points from './points.reducer';
 import newBadge from './newBadge.reducer';
 import userBadge from './userBadge.reducer';
 import badge from './badge.reducer';
+import admin from './admin.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   newBadge, // will have new badge
   userBadge, // will have id, name, image
   badge, // will have id, name, and image
+  admin, // will have user id, username, profile_image, and authLevel
 });
 
 export default rootReducer;

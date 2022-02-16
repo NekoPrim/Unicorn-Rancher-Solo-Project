@@ -105,6 +105,7 @@ router.put('/username', (req, res) => {
     });
 });
 
+// handles Ajax request for user to delete own profile
 router.delete('/', (req, res) => {
   console.log('in router delete user id', req.user.id);
 
@@ -127,12 +128,63 @@ router.delete('/', (req, res) => {
     })
 });
 
-router.get('/allUsers', rejectUnauthenticated, (req, res) => {
+// handles Ajax request for admin to GET all users
+router.get('/allUsers', (req, res) => {
+  console.log('req.user:', req.user.authLevel);
 
-  // setup SQL command
-  const queryText = `
-    
-  `;
-})
+  let queryText = '';
+
+  // setup conditonal for admin
+  if (req.user.authLevel === 'ADMIN') {
+    // setup SQL command
+    queryText = `
+      SELECT  
+        "id",
+        "username",
+        "profile_image",
+        "authLevel"
+      FROM "user"
+      ORDER BY "username" ASC;
+    `;
+  }
+
+  // send command to database
+  pool.query(queryText)
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((err) => {
+      console.log('pool admin GET ERROR!', err);
+      res.sendStatus(500);
+    });
+});
+
+// handles Ajax request for admin to delete user profile
+router.delete('/:id', (req, res) => {
+  console.log('user id to delete', req.params.id);
+
+  let queryText = '';
+
+  //make sure only admin can do
+  if (req.user.authLevel === 'ADMIN') {
+    // setup SQL command
+    queryText = `
+      DELETE FROM "user"
+      WHERE "id" = $1;
+    `;
+  }
+
+  const queryParams = [ req.params.id ];
+
+  // send command to user database
+  pool.query(queryText, queryParams)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log('pool admin DELETE ERROR!', err);
+      res.sendStatus(500);
+    });
+});
 
 module.exports = router;

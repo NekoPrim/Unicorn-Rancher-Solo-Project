@@ -127,12 +127,34 @@ router.delete('/', (req, res) => {
     })
 });
 
-router.get('/allUsers', rejectUnauthenticated, (req, res) => {
+router.get('/allUsers', (req, res) => {
+  console.log('req.user:', req.user.authLevel);
 
-  // setup SQL command
-  const queryText = `
-    
-  `;
-})
+  let queryText;
+
+  // setup conditonal for admin
+  if (req.user.authLevel === 'ADMIN') {
+    // setup SQL command
+    queryText = `
+      SELECT  
+        "id",
+        "username",
+        "profile_image",
+        "authLevel"
+      FROM "user"
+      ORDER BY "username" ASC;
+    `;
+  }
+
+  // send command to database
+  pool.query(queryText)
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((err) => {
+      console.log('pool admin GET ERROR!', err);
+      res.sendStatus(500);
+    });
+});
 
 module.exports = router;

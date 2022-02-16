@@ -15,7 +15,16 @@ const Profile = () => {
         <div>
             <div className="pHeader">
                 <img className="pImg" src={store.user.profile_image} />
-                <h2 className="pH">User Name: {store.user.username}</h2>
+                <h2 className="pH">
+                    <>User Name: </>
+                    <strong style={{ 
+                        "color": "mediumvioletred", 
+                        "font-size": "3rem" 
+                        }}
+                    >
+                        {store.user.username}
+                    </strong>
+                </h2>
             </div>
             {/* navigate to edit page */}
             <Link to="/edit">
@@ -25,7 +34,9 @@ const Profile = () => {
             </Link>
             <div>
                 {/* user badges component */}
-                <h2 className="pBody">Your Badges!</h2>
+                <h2 className="pBody">
+                    Your Badges!
+                </h2>
                 <ProfileBadges />
             </div>
         </div>

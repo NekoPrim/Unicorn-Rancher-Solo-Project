@@ -20,6 +20,13 @@ function Nav() {
             Login / Register
           </Link>
         )}
+        {user.authLevel === 'ADMIN' && (
+          <>
+            <Link className="navLink" to="/admin">
+              All Players
+            </Link>
+          </>
+        )}
 
         {/* If a user is logged in, show these links */}
         {user.id && (

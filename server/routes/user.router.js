@@ -127,4 +127,12 @@ router.delete('/', (req, res) => {
     })
 });
 
+router.get('/allUsers', rejectUnauthenticated, (req, res) => {
+
+  // setup SQL command
+  const queryText = `
+    
+  `;
+})
+
 module.exports = router;

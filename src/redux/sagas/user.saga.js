@@ -68,6 +68,7 @@ function* deleteUserProfile() {
 function* fetchAllUsers() {
   try {
     
+    // send data to user router
     const response = yield axios.get('/api/user/allUsers');
     console.log('All user response', response.data);
 
@@ -76,6 +77,21 @@ function* fetchAllUsers() {
     console.log('All user GET request failed', error);
   }
 } 
+
+// worker Saga: will be fired on "DELETE_THIS_USER" actions
+function* deleteThisUser(action) {
+  try {
+    console.log('in deleteThisUser', action.payload);
+    const userId = action.payload;
+
+    // send data to user router
+    yield axios.delete(`api/user/${userId}`);
+
+    yield put({ type: 'FETCH_ALL_USERS' });
+  } catch (error) {
+    console.log('deleteThisUser GET request failed!', error);
+  }
+}
 
 // watch for functions
 function* userSaga() {
@@ -88,6 +104,8 @@ function* userSaga() {
   yield takeLatest('DELETE_USER_PROFILE', deleteUserProfile);
 
   yield takeLatest('FETCH_ALL_USERS', fetchAllUsers);
+
+  yield takeLatest('DELETE_THIS_USER', deleteThisUser);
 }
 
 export default userSaga;

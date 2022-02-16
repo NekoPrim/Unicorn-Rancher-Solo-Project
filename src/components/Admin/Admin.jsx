@@ -13,10 +13,23 @@ const Admin = () => {
     const store =  useReduxStore();
     console.log('all users', store.admin);
 
+    // GET all user data
     useEffect(() => {
         dispatch({ type: 'FETCH_ALL_USERS'});
-    }, [dispatch]);
+    }, []);
 
+    // function called onClick
+    const handleDelete = (users) => {
+        console.log('in handleDelete', users.id);
+
+        // send request to user saga
+        dispatch({
+            type: 'DELETE_THIS_USER',
+            payload: users.id
+        });
+    }
+
+    // append all users to the DOM
     return(
         <div>
             <table className="adminArea">
@@ -28,12 +41,17 @@ const Admin = () => {
                     </tr>
                 </thead>
                 <tbody>
+                     {/* loop through admin reducer */}
                     {store.admin.map((users, id) => (
                         <tr className="adminData" key={id}>
                             <td>{users.username}</td>
                             <td>{users.profile_image}</td>
                             <td>
-                                <button className="btn">
+                                {/* delete this user */}
+                                <button 
+                                    className="btn"
+                                    onClick={() => handleDelete(users)}
+                                >
                                     Delete
                                 </button>
                             </td>

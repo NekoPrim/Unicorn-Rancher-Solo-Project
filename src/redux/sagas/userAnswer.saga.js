@@ -7,8 +7,12 @@ function* createUserAnswer(action) {
     const number = action.payload;
 
     try {
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+        };
         // send data to router
-        yield axios.post('/api/userAnswer', {number});
+        yield axios.post('/api/userAnswer', config, {number});
 
         } catch (error) {
         console.error('Level get request failed!', error);
@@ -19,8 +23,12 @@ function* deleteUserAnswer() {
     console.log('in deleteUserAnswer');
 
     try{
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+        };
         // send command to router
-        yield axios.delete('/api/userAnswer');
+        yield axios.delete('/api/userAnswer', config);
     } catch (error) {
         console.error('Delete userAnswer request failed!', error);
     }

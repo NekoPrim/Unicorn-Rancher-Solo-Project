@@ -1,10 +1,14 @@
 const express = require('express');
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
+const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
 
 // Handles Ajax request for user_answer
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('userAnswer req.body', req.body.number);
     console.log('userAnswer req.user', req.user.id);
 
@@ -30,7 +34,7 @@ router.post('/', (req, res) => {
 });
 
 // Handles Ajax request to delete user_answer
-router.delete('/', (req, res) => {
+router.delete('/', rejectUnauthenticated, (req, res) => {
 
     // setup SQL command
     const queryText =`

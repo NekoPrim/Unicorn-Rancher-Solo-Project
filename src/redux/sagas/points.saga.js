@@ -6,9 +6,13 @@ function* fetchpoints() {
     console.log('in fetchpoints');
 
     try {
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+        };
 
         // send request to router
-        const response = yield axios.get('/api/points');
+        const response = yield axios.get('/api/points', config);
 
         // then
         yield put({ type: 'SET_POINTS', payload: response.data });

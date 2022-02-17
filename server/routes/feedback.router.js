@@ -7,12 +7,19 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 // Handles Ajax request for badge
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
 
     // setup SQL command
     const queryText = `
-        SELECT * FROM "badge";
+        INSERT INTO "feedback"
+        ( "navigation", "understanding", "fun", "comments" )
+        VALUES
+        ( $1, $2, $3, $4 );
     `;
+
+    const queryParam = [
+
+    ]
 
     // request data from badge database
     pool.query(queryText)

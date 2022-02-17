@@ -27,9 +27,13 @@ function* fetchUser() {
 // worker Saga: will be fired on "UPDATE_PIC" actions
 function* updatePic(action) {
   try {
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    };
 
     // send data user router
-    yield axios.put('/api/user/pic', { profile_image: action.payload});
+    yield axios.put('/api/user/pic', config, { profile_image: action.payload});
     console.log('update user pic saga', action.payload);
 
     // then
@@ -43,8 +47,13 @@ function* updatePic(action) {
 function* updateUsername(action) {
   try {
 
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    };
+
     // send data to user router
-    yield axios.put('/api/user/username', { username: action.payload});
+    yield axios.put('/api/user/username', config, { username: action.payload});
     console.log('update username sage', action.payload);
 
     // then
@@ -56,23 +65,31 @@ function* updateUsername(action) {
 
 function* deleteUserProfile() {
   try {
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    };
 
     // send data to user router
     yield axios.delete('/api/user');
   } catch (error) {
-    console.log('User delete request failed', error);
+    console.log('User delete request failed', config, error);
   }
 }
 
 // worker Saga: will be fired on "UPDATE_USERNAME" actions
 function* fetchAllUsers() {
   try {
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    }
     
     // send data to user router
-    const response = yield axios.get('/api/user/allUsers');
+    const response = yield axios.get('/api/user/allUsers', config);
     console.log('All user response', response.data);
 
-    yield put({ type: 'SET_ALL_USERS', payload: response.data});
+    yield put({ type: 'SET_ALL_USERS', config, payload: response.data});
   } catch (error) {
     console.log('All user GET request failed', error);
   }
@@ -81,7 +98,12 @@ function* fetchAllUsers() {
 // worker Saga: will be fired on "DELETE_THIS_USER" actions
 function* deleteThisUser(action) {
   try {
-    console.log('in deleteThisUser', action.payload);
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    }
+
+    console.log('in deleteThisUser', config, action.payload);
     const userId = action.payload;
 
     // send data to user router

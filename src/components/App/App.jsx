@@ -39,11 +39,10 @@ function App() {
   const user = useSelector(store => store.user);
 
   useEffect(() => {
+    // request user data
     dispatch({ type: 'FETCH_USER' });
-
+    // request user badges
     dispatch({ type: 'FETCH_USER_BADGE' });
-
-    dispatch({ type: 'FETCH_FEEDBACK' });
   }, [dispatch]);
 
   return (
@@ -167,7 +166,7 @@ function App() {
           <ProtectedRoute
             // logged in shows feedback else shows LoginPage
             exact
-            path="/admin"
+            path="/feedback"
           >
             <Feedback />
           </ProtectedRoute>

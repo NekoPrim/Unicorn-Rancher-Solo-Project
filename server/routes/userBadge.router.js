@@ -1,10 +1,14 @@
 const express = require('express');
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
+const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
 
 // Handles Ajax request for questions
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('userBadge req.body', req.body.number);
     console.log('userBadge req.user', req.user.id);
 
@@ -30,7 +34,7 @@ router.post('/', (req, res) => {
 });
 
 // Handles Ajax request for user badge
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
 
     // setup SQL command
     const queryText = `

@@ -5,9 +5,13 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* fetchBadge() {
 
     try {
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+        };
 
         // send request to router
-        const response = yield axios.get('/api/badge');
+        const response = yield axios.get('/api/badge', config);
 
         // then
         yield put({ type: 'SET_BADGE', payload: response.data });

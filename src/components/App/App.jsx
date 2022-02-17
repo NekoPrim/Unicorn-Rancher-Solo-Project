@@ -30,6 +30,7 @@ import Badge from '../Badge/Badge';
 import Profile from '../Profile/Profile';
 import Edit from '../Edit/Edit';
 import Admin from '../Admin/Admin';
+import Feedback from '../Feedback/Feedback';
 import './App.css';
 
 function App() {
@@ -39,7 +40,10 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
+
     dispatch({ type: 'FETCH_USER_BADGE' });
+
+    dispatch({ type: 'FETCH_FEEDBACK' });
   }, [dispatch]);
 
   return (
@@ -81,7 +85,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows question one else shows LoginPage
             exact
             path="/questionOne"
           >
@@ -89,7 +93,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows response one else shows LoginPage
             exact
             path="/responseOne"
           >
@@ -97,7 +101,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows question two else shows LoginPage
             exact
             path="/questionTwo"
           >
@@ -105,7 +109,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows response two else shows LoginPage
             exact
             path="/responseTwo"
           >
@@ -113,7 +117,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows question three else shows LoginPage
             exact
             path="/questionThree"
           >
@@ -121,7 +125,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows response three else shows LoginPage
             exact
             path="/responseThree"
           >
@@ -129,7 +133,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows badge else shows LoginPage
             exact
             path="/badge"
           >
@@ -137,7 +141,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows profile else shows LoginPage
             exact
             path="/Profile"
           >
@@ -145,7 +149,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows edit else shows LoginPage
             exact
             path="/edit"
           >
@@ -153,11 +157,19 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows admin else shows LoginPage
             exact
             path="/admin"
           >
             <Admin />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows feedback else shows LoginPage
+            exact
+            path="/admin"
+          >
+            <Feedback />
           </ProtectedRoute>
 
           <Route
@@ -308,6 +320,20 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/Profile" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/feedback"
+          >
+            {user.id ?
+              // If the user is admin, 
+              // redirect them to the /admin page
+              <Redirect to="/feedback" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

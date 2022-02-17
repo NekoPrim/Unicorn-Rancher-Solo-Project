@@ -19,7 +19,7 @@ const Profile = () => {
                     <>User Name: </>
                     <strong style={{ 
                         "color": "mediumvioletred", 
-                        "font-size": "3rem" 
+                        "fontSize": "3rem" 
                         }}
                     >
                         {store.user.username}

@@ -3,9 +3,10 @@
     border: 3px solid pink;
     border-radius: 20px;
     display: flex;
-    height: 35rem;
+    height: 25rem;
     justify-content: space-around;
     margin: 0 10rem 0 10rem;
+    text-align: center;
 }
 
 .badgeNum {

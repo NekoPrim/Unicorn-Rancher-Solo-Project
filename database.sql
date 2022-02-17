@@ -7,6 +7,7 @@ CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (255) UNIQUE NOT NULL,
     "password" VARCHAR (1024) NOT NULL,
+	"profile_image" VARCHAR(1042) DEFAULT 'images/profile-image.jpeg'
     "authLevel" VARCHAR (255) DEFAULT 'USER'
 );
 
@@ -18,8 +19,8 @@ CREATE TABLE "badge" (
 
 CREATE TABLE "user_badge" (
     "id" SERIAL PRIMARY KEY,
-    "user_id" INTEGER REFERENCES "user",
-    "badge_id" INTEGER  REFERENCES "badge"
+    "user_id" integer REFERENCES "user"(id) ON DELETE CASCADE,
+    "badge_id" integer REFERENCES "badge"(id) ON DELETE CASCADE
 );
 
 INSERT INTO "badge"
@@ -52,9 +53,9 @@ CREATE TABLE "answer" (
 );
 
 CREATE TABLE "user_answer" (
-	"id" SERIAL PRIMARY KEY,
-	"user_id" INTEGER REFERENCES "user",
-	"answers_id" INTEGER REFERENCES "answer"
+    "id" SERIAL PRIMARY KEY,
+    "user_id" integer REFERENCES "user"(id) ON DELETE CASCADE,
+    "answers_id" integer REFERENCES "answer"(id) ON DELETE CASCADE
 );
 
 INSERT INTO "level"

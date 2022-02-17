@@ -53,7 +53,11 @@ const AnswerOne = () => {
             {/* loop through answers */}
             {store.answer.map((content, id) =>  {
                 return (
-                    <div className="aContent" onClick={() => setSelected(content)} key={id}>
+                    <div 
+                        className="aContent" 
+                        onClick={() => setSelected(content)} 
+                        key={id}
+                    >
                         {/* // make this its own component */}
                         {selected.content === content.content
                             ?

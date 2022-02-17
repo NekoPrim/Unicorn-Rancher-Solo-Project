@@ -26,3 +26,7 @@ tr:nth-child(even) {
     background-color: honeydew;
     font-family: 'Indie Flower', cursive;
 }
+
+th, td {
+    padding: 0.5rem;
+}

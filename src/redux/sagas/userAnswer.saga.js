@@ -7,12 +7,9 @@ function* createUserAnswer(action) {
     const number = action.payload;
 
     try {
-        const config = {
-            headers: { 'Content-Type': 'application/json' },
-            withCredentials: true,
-        };
+        
         // send data to router
-        yield axios.post('/api/userAnswer', config, {number});
+        yield axios.post('/api/userAnswer', {number});
 
         } catch (error) {
         console.error('Level get request failed!', error);

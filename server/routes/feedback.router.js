@@ -8,27 +8,31 @@ const router = express.Router();
 
 // Handles Ajax request for badge
 router.post('/', rejectUnauthenticated, (req, res) => {
+    console.log('feedback router data', req.body);
 
     // setup SQL command
     const queryText = `
         INSERT INTO "feedback"
-        ( "navigation", "understanding", "fun", "comments" )
+        ( "user_id", "navigation", "understanding", "fun", "comments" )
         VALUES
-        ( $1, $2, $3, $4 );
+        ( $1, $2, $3, $4, $5 );
     `;
 
-    const queryParam = [
-
-    ]
+    const queryParams = [
+        req.user.id,
+        req.body.navigation,
+        req.body.understanding,
+        req.body.fun,
+        req.body.comments
+    ];
 
     // request data from badge database
-    pool.query(queryText)
-        .then((result) => {
-            console.log('badge data', result.rows);
-            res.send(result.rows);
+    pool.query(queryText, queryParams)
+        .then(() => {
+            res.sendStatus(201);
         })
         .catch((err) => {
-            console.log('badge pool GET error', err);
+            console.log('feedback pool POST error', err);
         });
 });
 

@@ -120,3 +120,14 @@ VALUES
 ( 10, 'You run down the aisle, pulling as much bread off the shelves as you scream DEAD BREAD!', 'That’s a bit over the top, but one unicorn likes your passion.', 1 ),
 ( 10, 'You march down the aisle while declaring it’s an atrocity seeing all this bread.', 'The unicorns are glad your views on bread align with them.', 3 ),
 ( 10, 'You go down the aisle, filling your cart up with all the bread.', 'You revolt the unicorns, away with your bread!', 0 );
+
+CREATE TABLE "feedback" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "user"(id) ON DELETE CASCADE,
+    "navigation" INTEGER NOT NULL,
+    "understanding" INTEGER NOT NULL,
+    "fun" INTEGER NOT NULL,
+    "comments" TEXT,
+    flagged boolean DEFAULT FALSE,
+    date date NOT NULL DEFAULT CURRENT_DATE
+);

@@ -77,7 +77,7 @@ router.put('/pic', (req, res) => {
 });
 
 // handles Ajax request for updating username
-router.put('/username', rejectUnauthenticated, (req, res) => {
+router.put('/username', (req, res) => {
   console.log('username PUT request', req.body);
   console.log('user id PUT request', req.user.id)
 

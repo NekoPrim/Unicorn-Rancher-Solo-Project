@@ -1,12 +1,5 @@
 // created feedback store variable
-const feedback = {
-    navigate: '', 
-    understand: '',
-    fun: '',
-    comments: ''
-};
-
-const feedbackReducer = (state = feedback, action) => {
+const feedbackReducer = (state = [], action) => {
     switch (action.type) {
         case 'ADD_FEEDBACK':
             return {...state, ...action.payload};
@@ -17,6 +10,6 @@ const feedbackReducer = (state = feedback, action) => {
     }
 };
 
-  // badge will be on the redux state at:
-  // state.badge
+  // feedback will be on the redux state at:
+  // state.feedback
 export default feedbackReducer;

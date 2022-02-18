@@ -31,15 +31,7 @@ const Badge = () => {
     }
     console.log('myBadge', myBadge);
     const myNewBadge = findNewBadge(Badge);
-    console.log('new badge', myNewBadge)
-
-    // // setup dispatch
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     // GET badge data
-    //     dispatch({ type: 'FETCH_USER_BADGE' });
-    // }, []);
+    console.log('new badge', myNewBadge);
 
     // render new badge to DOM
     return(

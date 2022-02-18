@@ -31,6 +31,7 @@ import Profile from '../Profile/Profile';
 import Edit from '../Edit/Edit';
 import Admin from '../Admin/Admin';
 import Feedback from '../Feedback/Feedback';
+import ThankYou from '../ThankYou/ThankYou';
 import './App.css';
 
 function App() {
@@ -169,6 +170,14 @@ function App() {
             path="/feedback"
           >
             <Feedback />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows feedback else shows LoginPage
+            exact
+            path="/ty"
+          >
+            <ThankYou />
           </ProtectedRoute>
 
           <Route
@@ -333,6 +342,20 @@ function App() {
               // If the user is admin, 
               // redirect them to the /admin page
               <Redirect to="/feedback" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/ty"
+          >
+            {user.id ?
+              // If the user is admin, 
+              // redirect them to the /admin page
+              <Redirect to="/ty" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

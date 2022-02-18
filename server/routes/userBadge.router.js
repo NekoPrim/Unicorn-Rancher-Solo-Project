@@ -3,12 +3,11 @@ const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
-const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
 
 // Handles Ajax request for questions
-router.post('/', rejectUnauthenticated, (req, res) => {
+router.post('/', (req, res) => {
     console.log('userBadge req.body', req.body.number);
     console.log('userBadge req.user', req.user.id);
 

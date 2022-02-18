@@ -1,84 +1,142 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import './Feedback.css';
 
 const Feedback = () => {
 
     // setup local variables
-    // const [navigate, setNavigate] = useState('');
+    const [navigation, setNavigation] = useState('');
+    const [understanding, setUnderstanding] = useState('');
+    const [fun, setFun] = useState('');
+    const [comments, setComments] = useState('');
 
-    // setup dispatch
+    // setup dispatch and history
     const dispatch = useDispatch();
+    const history = useHistory();
 
     // on submit this function is called
-    // const handleSubmit = () => {
-    //     console.log('in handleSubmit');
-    // }
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    // return(
-    //     <div>
-    //         <form onSubmit={handleSubmit}>
-    //             <div>
-    //                 <h3>How easy was it to navigate Unicorn Rancer?</h3>
-    //                 <h5>1 being not easy, 5 being super easy</h5>
-    //                 <input
-    //                     onKeyPress={(event) => {
-    //                         if (!/[0-5]/.test(event.key)) {
-    //                             event.preventDefault();
-    //                         }
-    //                     }}
-    //                     type="text"
-    //                     maxLength="1"
-    //                     value={navigate}
-    //                     onChange={(event) =>setFeeling(event.target.value)}
-    //                     placeholder='1-5'
-    //                 />
-    //             </div>
-    //             <div>
-    //                 <h3>How easy is it to understand the game?</h3>
-    //                 <h5>1 being not easy, 5 being super easy</h5>
-    //                 <input
-    //                     onKeyPress={(event) => {
-    //                         if (!/[0-5]/.test(event.key)) {
-    //                             event.preventDefault();
-    //                         }
-    //                     }}
-    //                     type="text"
-    //                     maxLength="1"
-    //                     value={understand}
-    //                     onChange={(event) =>setFeeling(event.target.value)}
-    //                     placeholder='1-5'
-    //                 />
-    //             </div>
+        console.log('in handleSubmit');
 
-    //             <div>
-    //                 <h4>How fun is Unicorn Rancher?</h4>
-    //                 <h5>1 being not fun, 5 being super fun</h5>
-    //                 <input
-    //                     onKeyPress={(event) => {
-    //                         if (!/[0-5]/.test(event.key)) {
-    //                             event.preventDefault();
-    //                         }
-    //                     }}
-    //                     type="text"
-    //                     maxLength="1"
-    //                     value={fun}
-    //                     onChange={(event) =>setFeeling(event.target.value)}
-    //                     placeholder='1-5'
-    //                 />
-    //             </div>
+        // setup payload to be sent to saga
+        const feedback = {
+            navigation: navigation,
+            understanding: understanding,
+            fun: fun,
+            comments: comments
+        };
 
-    //             <div>
-    //                 <h3>Any comments?</h3>
-    //                 <textarea
-    //                     type="text"
-    //                 />
-    //             </div>
-    //             <button className="btn">
-    //                 Submit Feedback
-    //             </button>
-    //         </form>
-    //     </div>
-    // );
+        console.log('check feedback', feedback);
+
+        // send datd to feedback saga
+        dispatch({
+            type: 'CREATE_FEEDBACK',
+            payload: feedback
+        });
+
+        // navigate to thankyou component
+        history.push('/ty');
+    }
+
+    // render feedback questions to the DOM
+    return(
+        <div className="fArea">
+            <form onSubmit={handleSubmit}>
+                <div className="fdiv">
+                    {/* question one */}
+                    <h3 className="fTitle">
+                        How easy was it to navigate Unicorn Rancer?
+                    </h3>
+                    <h5 className="fnum">
+                        1 being not easy, 5 being super easy
+                    </h5>
+                    {/* enter 1-5 */}
+                    <input
+                        onKeyPress={(event) => {
+                            if (!/[0-5]/.test(event.key)) {
+                                event.preventDefault();
+                            }
+                        }}
+                        type="text"
+                        maxLength="1"
+                        onChange={(event) => setNavigation(event.target.value)}
+                        value={navigation}
+                        placeholder='1-5'
+                    />
+                </div>
+                <div className="fdiv">
+                    {/* question two */}
+                    <h3 className="fTitle">
+                        How easy is it to understand the game?
+                    </h3>
+                    <h5 className="fnum">
+                        1 being not easy, 5 being super easy
+                    </h5>
+                    {/* enter 1-5 */}
+                    <input
+                        onKeyPress={(event) => {
+                            if (!/[0-5]/.test(event.key)) {
+                                event.preventDefault();
+                            }
+                        }}
+                        type="text"
+                        maxLength="1"
+                        onChange={(event) => setUnderstanding(event.target.value)}
+                        value={understanding}
+                        placeholder='1-5'
+                    />
+                </div>
+
+                <div className="fdiv">
+                    {/* question three */}
+                    <h4 className="fTitle">
+                        How fun is Unicorn Rancher?
+                    </h4>
+                    <h5 className="fnum">
+                        1 being not fun, 5 being super fun
+                    </h5>
+                    {/* enter 1-5 */}
+                    <input
+                        onKeyPress={(event) => {
+                            if (!/[0-5]/.test(event.key)) {
+                                event.preventDefault();
+                            }
+                        }}
+                        type="text"
+                        maxLength="1"
+                        onChange={(event) => setFun(event.target.value)}
+                        value={fun}
+                        placeholder='1-5'
+                    />
+                </div>
+
+                <div>
+                    {/* does not need to be filled out */}
+                    <h3 className="fTitle">
+                        Any comments?
+                    </h3>
+                    <textarea
+                        type="text"
+                        name="comments"
+                        onChange={(event) =>setComments(event.target.value)}
+                        value={comments}
+                    />
+                </div>
+                {/* navigate to thank you page */}
+                <button 
+                    type="submit" 
+                    className="btn fBtn"
+                    disabled={ !navigation || !understanding || !fun }
+                >
+                    Submit Feedback
+                </button>
+            </form>
+        </div>
+    );
 }
 
 export default Feedback;

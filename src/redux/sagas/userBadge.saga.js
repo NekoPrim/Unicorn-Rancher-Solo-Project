@@ -7,12 +7,9 @@ function* createUserBadge(action) {
     const number = action.payload;
 
     try {
-        const config = {
-            headers: { 'Content-Type': 'application/json' },
-            withCredentials: true,
-        };
+        
         // send data to router
-        yield axios.post('/api/userBadge', config, {number});
+        yield axios.post('/api/userBadge', {number});
 
         yield put({ type: 'FETCH_USER_BADGE' });
     } catch (error) {

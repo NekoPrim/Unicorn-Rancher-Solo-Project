@@ -16,12 +16,18 @@ function AboutPage() {
           better with some sparkle?
         </p>
         <p>
-          Unicorn rancher is simple, fun, and adds some sparkle to your life!
+          <strong style={{"color": "mediumvioletred"}}>
+            Unicorn Rancher
+            </strong>
+          <> is simple, fun, and adds some sparkle to your life!</>
         </p>
         <p>
-          All you have to do is answer some simple unicorn questions to recieve
-          an amazing badge. Be the best unicorn rancher by collecting all the 
-          badges!
+          <>All you have to do is answer some simple unicorn questions to recieve
+          an amazing badge. Be the best </>
+          <strong style={{"color": "mediumvioletred"}}>
+            Unicorn Rancher
+          </strong> 
+            <> by collecting all the badges!</>
         </p>
       </div>
     </div>

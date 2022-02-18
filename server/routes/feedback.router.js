@@ -75,7 +75,7 @@ router.get('/comments', rejectUnauthenticated, (req, res) => {
             SELECT
                 "user"."username",
                 "feedback"."comments",
-                "feedback"."date"
+                TO_CHAR("feedback"."date", 'YYYY-MM-DD') AS date 
             FROM "user"
             JOIN "feedback"
                 ON "user"."id" = "feedback"."user_id"

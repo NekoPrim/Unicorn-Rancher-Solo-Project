@@ -26,10 +26,10 @@
 
 .navLink {
   display: inline-block;
-  color: mediumvioletred;
+  color:dimgray;
   background-image: url('../../../public/images/sparkles-stars.gif');
   background-size: 200%;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Covered By Your Grace', cursive;
   font-size: 1.5rem !important;
   text-align: center;
   padding: 24px 10px;

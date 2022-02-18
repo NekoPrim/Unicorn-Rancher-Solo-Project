@@ -19,7 +19,7 @@ function Technologies() {
                     HTML / CSS / JavaScript
                 </li>
                 <li>
-                    Express / Node.js / passport
+                    Express / Node.js / Passport
                 </li>
                 <li>
                     React / Redux / Saga
@@ -28,7 +28,7 @@ function Technologies() {
                     SQL / PG
                 </li>
                 <li>
-                    Postico / Github / Heroku
+                    Postico / Github
                 </li>
             </ul>
             <h2 className="tTitle">

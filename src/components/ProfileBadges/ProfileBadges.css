@@ -5,6 +5,9 @@
 }
 
 .badgeNum {
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 2rem;
+    color: dimgray;
     text-align: center;
 }
 
@@ -21,7 +24,7 @@
 }
 
 .picName {
-    font-family: 'Indie Flower', cursive;
-    font-size: 1.2rem;
-    color: mediumvioletred;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 2rem;
+    color: dimgray;
 }

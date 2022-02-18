@@ -1,6 +1,6 @@
 .qContent {
-    font-family: 'Indie Flower', cursive;
-    font-size: 30px;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 2.5rem !important;
     text-align: center;
 }
 
@@ -13,6 +13,6 @@
     background-color: honeydew;
     border: 3px solid pink;
     border-radius: 15px;
-    color: mediumvioletred;
+    color: darkmagenta;
     margin: 3rem 10rem 3rem 10rem;
 }

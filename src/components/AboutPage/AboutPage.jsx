@@ -16,7 +16,10 @@ function AboutPage() {
           better with some sparkle?
         </p>
         <p>
-          <strong style={{"color": "mediumvioletred"}}>
+          <strong style={{
+            "color": "darkmagenta",
+            "fontSize": "2.5rem"
+          }}>
             Unicorn Rancher
             </strong>
           <> is simple, fun, and adds some sparkle to your life!</>
@@ -24,7 +27,10 @@ function AboutPage() {
         <p>
           <>All you have to do is answer some simple unicorn questions to recieve
           an amazing badge. Be the best </>
-          <strong style={{"color": "mediumvioletred"}}>
+          <strong style={{
+            "color": "darkmagenta",
+            "fontSize": "2.5rem"
+          }}>
             Unicorn Rancher
           </strong> 
             <> by collecting all the badges!</>

@@ -22,7 +22,7 @@ const AdminFeedback = () => {
     return(
         <div>
             <div className="afeed">
-                <h2>Player feedback (AVG)</h2>
+                <h2>AVG Player feedback</h2>
                 <p>Rating 1 to 5: 1 = Bad, 5 = Good</p>
             </div>
             <table className="afArea">

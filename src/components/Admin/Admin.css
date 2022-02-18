@@ -26,3 +26,14 @@ tr:nth-child(even) {
     background-color: honeydew;
     font-family: 'Indie Flower', cursive;
 }
+
+th, td {
+    padding: 1rem;
+}
+
+.apImg {
+    border: 3px solid pink;
+    border-radius: 10px;
+    height: 80px;
+    width: 70px;
+}

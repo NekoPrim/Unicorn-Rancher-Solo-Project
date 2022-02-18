@@ -6,11 +6,15 @@ function* fetchpoints() {
     console.log('in fetchpoints');
 
     try {
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+        };
 
-        // send request to router
-        const response = yield axios.get('/api/points');
+        // send request to points router
+        const response = yield axios.get('/api/points', config);
 
-        // then
+        // then set points reducer
         yield put({ type: 'SET_POINTS', payload: response.data });
     } catch (error) {
         console.log('points GET request failed', error);

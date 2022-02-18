@@ -1,0 +1,32 @@
+.afeed {
+    background-color: black;
+    border: 3px solid pink;
+    border-radius: 15px;
+    color: pink;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2rem;
+    margin: 2rem 20rem 2rem 20rem;
+    text-align: center;
+}
+
+.afArea {
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+.afHeaders {
+    background-color: mediumvioletred;
+    color: #f2f2f2;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2rem;
+}
+
+.afData {
+    background-color: honeydew;
+    font-family: 'Indie Flower', cursive;
+}
+
+.afrow {
+    font-size: 1.4rem;
+}

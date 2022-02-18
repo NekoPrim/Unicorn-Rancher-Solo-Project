@@ -7,9 +7,11 @@ function* createUserBadge(action) {
     const number = action.payload;
 
     try {
-        // send data to router
+        
+        // send data to user badge router
         yield axios.post('/api/userBadge', {number});
 
+        // then reload user badge reducer
         yield put({ type: 'FETCH_USER_BADGE' });
     } catch (error) {
         console.error('userBadge POST request failed!', error);
@@ -21,13 +23,20 @@ function* fetchUserBadge() {
     console.log('in fetchUserBadge');
 
     try {
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+        };
 
         // send request to router
-        const response = yield axios.get('/api/userBadge');
+        const response = yield axios.get('/api/userBadge', config);
         console.log('fetchUserBadge response.data', response.data);
 
-        // then
-        yield put({ type: 'SET_USER_BADGE', payload: response.data });
+        // then set user badge reducer
+        yield put({ 
+            type: 'SET_USER_BADGE', 
+            payload: response.data 
+        });
     } catch (error) {
         console.log('userBadge GET request failed', error);
     }

@@ -1,0 +1,32 @@
+.fArea {
+    background-color: honeydew;
+    border: 3px solid pink;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 2rem 10rem 0 10rem;
+    text-align: center;
+}
+
+.fTitle {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2rem;
+}
+
+.fnum {
+    color: mediumvioletred;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2rem;
+}
+
+.fdiv {
+    border-bottom: 3px dotted pink;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.fBtn {
+    margin: 2rem;
+    position: relative;
+}
+

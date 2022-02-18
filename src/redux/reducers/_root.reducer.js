@@ -10,6 +10,8 @@ import newBadge from './newBadge.reducer';
 import userBadge from './userBadge.reducer';
 import badge from './badge.reducer';
 import admin from './admin.reducer';
+import feedback from './feedback.reducer';
+import comments from './comments.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -29,6 +31,8 @@ const rootReducer = combineReducers({
   userBadge, // will have id, name, image
   badge, // will have id, name, and image
   admin, // will have user id, username, profile_image, and authLevel
+  feedback, // will have avg navigation, avg understanding, and avg fun
+  comments, // will hav user comments
 });
 
 export default rootReducer;

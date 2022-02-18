@@ -106,7 +106,7 @@ router.put('/username', (req, res) => {
 });
 
 // handles Ajax request for user to delete own profile
-router.delete('/', (req, res) => {
+router.delete('/', rejectUnauthenticated, (req, res) => {
   console.log('in router delete user id', req.user.id);
 
   // setup SQL command
@@ -129,7 +129,7 @@ router.delete('/', (req, res) => {
 });
 
 // handles Ajax request for admin to GET all users
-router.get('/allUsers', (req, res) => {
+router.get('/allUsers', rejectUnauthenticated, (req, res) => {
   console.log('req.user:', req.user.authLevel);
 
   let queryText = '';
@@ -160,7 +160,7 @@ router.get('/allUsers', (req, res) => {
 });
 
 // handles Ajax request for admin to delete user profile
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   console.log('user id to delete', req.params.id);
 
   let queryText = '';

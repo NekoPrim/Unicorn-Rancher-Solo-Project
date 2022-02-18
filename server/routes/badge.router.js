@@ -7,7 +7,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 // Handles Ajax request for badge
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
 
     // setup SQL command
     const queryText = `

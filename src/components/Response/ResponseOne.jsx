@@ -15,16 +15,20 @@ const ResponseOne = () => {
         <div>
             {/* level data */}
             <Level />
+            <div className="rCont">
             <div>
-            <img className="rImg" src={store.selected.question_image} />
-            <h2 className="rContent">{store.selected.response}</h2>
+                <img className="rImg" src={store.selected.question_image} />
+                <h2 className="rContent">
+                    {store.selected.response}
+                </h2>
             </div>
             {/* navigate to next question */}
-            <Link to="/questionTwo">
-                <button className="btn rBtn">
-                    Next Question
-                </button>
-            </Link>
+                <Link to="/questionTwo">
+                    <button className="btn rBtn">
+                        Next Question
+                    </button>
+                </Link>
+            </div>
         </div>
     );
 }

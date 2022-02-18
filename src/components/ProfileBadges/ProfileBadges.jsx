@@ -44,7 +44,7 @@ const ProfileBadges = () => {
             {/* <h3 className="badgeNum">{uniqueBadges.length} out of 4</h3> */}
             {uniqueBadges.map((pic, id) => (
                 <div className="badgeArea" key={id}>
-                    <h4>{pic.name}</h4>
+                    <h4 className="picName">{pic.name}</h4>
                     <img className="pbImg" src={pic.image} />
                 </div>
             ))}

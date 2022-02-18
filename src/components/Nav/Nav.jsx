@@ -25,12 +25,20 @@ function Nav() {
             <Link className="navLink" to="/admin">
               All Players
             </Link>
+
+            <Link className="navLink" to="/userFeedback">
+              Player Feedback
+            </Link>
           </>
         )}
 
         {/* If a user is logged in, show these links */}
-        {user.id && (
+        {user.authLevel === 'USER' && (
           <>
+            <Link className="navLink" to="/feedback">
+              Feedback
+            </Link>
+
             <Link className="navLink" to="/Profile">
               Profile
             </Link>
@@ -39,15 +47,19 @@ function Nav() {
               Game
             </Link>
 
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
-
             <Link className="navLink" to="/info">
               Info Page
             </Link>
 
-            <LogOutButton className="navLink" />
+          </>
+        )}
+        {user.id && (
+          <>
+          <Link className="navLink" to="/user">
+            Home
+          </Link>
+
+          <LogOutButton className="navLink" />
           </>
         )}
 

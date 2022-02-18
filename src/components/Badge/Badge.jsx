@@ -31,24 +31,17 @@ const Badge = () => {
     }
     console.log('myBadge', myBadge);
     const myNewBadge = findNewBadge(Badge);
-    console.log('new badge', myNewBadge)
-
-    // // setup dispatch
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     // GET badge data
-    //     dispatch({ type: 'FETCH_USER_BADGE' });
-    // }, []);
+    console.log('new badge', myNewBadge);
 
     // render new badge to DOM
     return(
         <div>
             <Level />
             
+            <div className="bCont">
             <div>
                 <h1 className="bTitle">Congratulations!!!</h1>
-                <h2 className="bTitle">{myNewBadge.name}</h2>
+                <h2 className="bStuff">{myNewBadge.name}</h2>
                 <img className="bImg" src={myNewBadge.image} />
             </div>
             {/* navigate to home page */}
@@ -57,6 +50,7 @@ const Badge = () => {
                     Home
                 </button>
             </Link>
+            </div>
         </div>
     );
 }

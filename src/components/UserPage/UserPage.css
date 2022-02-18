@@ -1,4 +1,14 @@
+.uCont {
+    background-color: honeydew;
+    border: 3px solid pink;
+    border-radius: 15px;
+    margin: 2rem 10rem 0 10rem;
+}
+
 .uTitle {
+    font-family: 'Luckiest Guy', cursive;
+
+    margin-bottom: 2rem;
     text-align: center;
 }
 
@@ -13,6 +23,7 @@
 }
 
 .uBtn {
+    margin-top: 2rem;
     position: relative;
     left: 50%;
     transform: translateX(-50%);

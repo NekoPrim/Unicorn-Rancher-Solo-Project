@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
+import Swal from 'sweetalert2';
 
 import './Admin.css';
 
@@ -21,7 +22,7 @@ const Admin = () => {
     // function called onClick
     const handleDelete = (users) => {
         console.log('in handleDelete', users.id);
-
+        
         // send request to user saga
         dispatch({
             type: 'DELETE_THIS_USER',
@@ -35,17 +36,27 @@ const Admin = () => {
             <table className="adminArea">
                 <thead>
                     <tr className="adminHeaders">
-                        <th>Player Name</th>
-                        <th>Profile Picture</th>
-                        <th>Remove Player</th>
+                        <th>
+                            Player Name
+                        </th>
+                        <th>
+                            Profile Picture
+                        </th>
+                        <th>
+                            Remove Player
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                      {/* loop through admin reducer */}
                     {store.admin.map((users, id) => (
                         <tr className="adminData" key={id}>
-                            <td>{users.username}</td>
-                            <td>{users.profile_image}</td>
+                            <td>
+                                {users.username}
+                            </td>
+                            <td>
+                                <img className="apImg" src={users.profile_image}/>
+                            </td>
                             <td>
                                 {/* delete this user */}
                                 <button 

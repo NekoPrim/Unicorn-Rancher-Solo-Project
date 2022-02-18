@@ -1,4 +1,7 @@
 const express = require('express');
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 
 const router = express.Router();
@@ -30,7 +33,7 @@ router.post('/', (req, res) => {
 });
 
 // Handles Ajax request for user badge
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
 
     // setup SQL command
     const queryText = `

@@ -10,8 +10,17 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   return (
     <>
-      <div className="container">
-        <h2 className="uTitle">Welcome, {user.username}!</h2>
+      <div className="container uCont">
+        <h2 className="uTitle">
+          <>Welcome, </>
+          <strong style={{
+            "color": "mediumvioletred",
+            "fontSize": "3rem" 
+            }}>
+            {user.username}
+          </strong>
+          !
+        </h2>
         <div>
           <img className="uImg" src="images/Cartoon-Unicorn.jpeg" />
         </div>

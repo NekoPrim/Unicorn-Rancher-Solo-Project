@@ -12,14 +12,14 @@ const Profile = () => {
 
     // append user data to DOM
     return(
-        <div>
+        <div className="pArea">
             <div className="pHeader">
                 <img className="pImg" src={store.user.profile_image} />
                 <h2 className="pH">
                     <>User Name: </>
                     <strong style={{ 
                         "color": "mediumvioletred", 
-                        "font-size": "3rem" 
+                        "fontSize": "3rem" 
                         }}
                     >
                         {store.user.username}

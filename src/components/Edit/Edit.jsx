@@ -59,11 +59,6 @@ const Edit = () => {
                 dispatch({ type: 'LOGOUT' });
             }
         });
-
-        // // call function in user saga
-        // dispatch({ type: 'DELETE_USER_PROFILE'});
-        // // logout
-        // dispatch({ type: 'LOGOUT' });
     }
 
     return(

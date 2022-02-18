@@ -77,16 +77,20 @@ const ResponseThree = () => {
         <div>
             {/* level data */}
             <Level />
+            <div className="rCont">
             <div>
-            <img className="rImg" src={store.selected.question_image} />
-            <h2 className="rContent">{store.selected.response}</h2>
+                <img className="rImg" src={store.selected.question_image} />
+                <h2 className="rContent">
+                    {store.selected.response}
+                </h2>
             </div>
             {/* navigate to badge component */}
-            <Link to="/badge">
-                <button className="btn rBtn" onClick={addBadge}>
-                    Finished!
-                </button>
-            </Link>
+                <Link to="/badge">
+                    <button className="btn rBtn" onClick={addBadge}>
+                        Finished!
+                    </button>
+                </Link>
+            </div>
         </div>
     );
 }

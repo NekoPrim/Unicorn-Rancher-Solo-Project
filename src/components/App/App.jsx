@@ -30,6 +30,9 @@ import Badge from '../Badge/Badge';
 import Profile from '../Profile/Profile';
 import Edit from '../Edit/Edit';
 import Admin from '../Admin/Admin';
+import Feedback from '../Feedback/Feedback';
+import ThankYou from '../ThankYou/ThankYou';
+import AdminFeedback from '../AdminFeedback/AdminFeedback';
 import './App.css';
 
 function App() {
@@ -38,7 +41,9 @@ function App() {
   const user = useSelector(store => store.user);
 
   useEffect(() => {
+    // request user data
     dispatch({ type: 'FETCH_USER' });
+    // request user badges
     dispatch({ type: 'FETCH_USER_BADGE' });
   }, [dispatch]);
 
@@ -81,7 +86,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows question one else shows LoginPage
             exact
             path="/questionOne"
           >
@@ -89,7 +94,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows response one else shows LoginPage
             exact
             path="/responseOne"
           >
@@ -97,7 +102,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows question two else shows LoginPage
             exact
             path="/questionTwo"
           >
@@ -105,7 +110,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows response two else shows LoginPage
             exact
             path="/responseTwo"
           >
@@ -113,7 +118,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows question three else shows LoginPage
             exact
             path="/questionThree"
           >
@@ -121,7 +126,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows response three else shows LoginPage
             exact
             path="/responseThree"
           >
@@ -129,7 +134,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows badge else shows LoginPage
             exact
             path="/badge"
           >
@@ -137,7 +142,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows profile else shows LoginPage
             exact
             path="/Profile"
           >
@@ -145,7 +150,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows edit else shows LoginPage
             exact
             path="/edit"
           >
@@ -153,11 +158,35 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows admin else shows LoginPage
             exact
             path="/admin"
           >
             <Admin />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows feedback else shows LoginPage
+            exact
+            path="/feedback"
+          >
+            <Feedback />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows feedback else shows LoginPage
+            exact
+            path="/ty"
+          >
+            <ThankYou />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows feedback else shows LoginPage
+            exact
+            path="/adminFeedback"
+          >
+            <AdminFeedback />
           </ProtectedRoute>
 
           <Route
@@ -308,6 +337,48 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/Profile" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/feedback"
+          >
+            {(user.authLevel === 'USER') ?
+              // If the user is admin, 
+              // redirect them to the /admin page
+              <Redirect to="/feedback" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/ty"
+          >
+            {user.id ?
+              // If the user is admin, 
+              // redirect them to the /admin page
+              <Redirect to="/ty" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/userfeedback"
+          >
+            {(user.authLevel === 'ADMIN') ?
+              // If the user is admin, 
+              // redirect them to the /admin page
+              <Redirect to="/adminFeedback" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

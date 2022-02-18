@@ -12,10 +12,10 @@ function* fetchQuestion(action) {
             withCredentials: true,
         };
 
-        // send request to router
+        // send request to question router
         const response = yield axios.get(`/api/question/${id}`, config, {id} );
 
-        // then
+        // then set question reducer
         yield put({ type: 'SET_QUESTION', payload: response.data });
     } catch (error) {
         console.log('question GET request failed', error);

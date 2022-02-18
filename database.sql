@@ -7,6 +7,7 @@ CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (255) UNIQUE NOT NULL,
     "password" VARCHAR (1024) NOT NULL,
+	"profile_image" VARCHAR(1042) DEFAULT 'images/profile-image.jpeg'
     "authLevel" VARCHAR (255) DEFAULT 'USER'
 );
 
@@ -18,8 +19,8 @@ CREATE TABLE "badge" (
 
 CREATE TABLE "user_badge" (
     "id" SERIAL PRIMARY KEY,
-    "user_id" INTEGER REFERENCES "user",
-    "badge_id" INTEGER  REFERENCES "badge"
+    "user_id" integer REFERENCES "user"(id) ON DELETE CASCADE,
+    "badge_id" integer REFERENCES "badge"(id) ON DELETE CASCADE
 );
 
 INSERT INTO "badge"
@@ -52,9 +53,9 @@ CREATE TABLE "answer" (
 );
 
 CREATE TABLE "user_answer" (
-	"id" SERIAL PRIMARY KEY,
-	"user_id" INTEGER REFERENCES "user",
-	"answers_id" INTEGER REFERENCES "answer"
+    "id" SERIAL PRIMARY KEY,
+    "user_id" integer REFERENCES "user"(id) ON DELETE CASCADE,
+    "answers_id" integer REFERENCES "answer"(id) ON DELETE CASCADE
 );
 
 INSERT INTO "level"
@@ -119,3 +120,14 @@ VALUES
 ( 10, 'You run down the aisle, pulling as much bread off the shelves as you scream DEAD BREAD!', 'That’s a bit over the top, but one unicorn likes your passion.', 1 ),
 ( 10, 'You march down the aisle while declaring it’s an atrocity seeing all this bread.', 'The unicorns are glad your views on bread align with them.', 3 ),
 ( 10, 'You go down the aisle, filling your cart up with all the bread.', 'You revolt the unicorns, away with your bread!', 0 );
+
+CREATE TABLE "feedback" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "user"(id) ON DELETE CASCADE,
+    "navigation" INTEGER NOT NULL,
+    "understanding" INTEGER NOT NULL,
+    "fun" INTEGER NOT NULL,
+    "comments" TEXT,
+    flagged boolean DEFAULT FALSE,
+    date date NOT NULL DEFAULT CURRENT_DATE
+);

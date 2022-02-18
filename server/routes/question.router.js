@@ -1,10 +1,13 @@
 const express = require('express');
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 
 const router = express.Router();
 
 // Handles Ajax request for questions
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log('question req.params', req.params.id);
 
     // setup SQL command

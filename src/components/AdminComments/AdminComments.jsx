@@ -24,6 +24,10 @@ const AdminComments = () => {
                 <thead>
                     <tr className="afHeaders">
                         <th>
+                            Player Name
+                        </th>
+
+                        <th>
                             Player Comments
                         </th>
 
@@ -39,10 +43,14 @@ const AdminComments = () => {
                             return(
                                 <tr className="afData" key={id}>
                                     <td className="afrow">
+                                        {feed.username}
+                                    </td>
+
+                                    <td className="afrow">
                                         {feed.comments}
                                     </td>
 
-                                    <td>
+                                    <td className="afrow">
                                         {feed.date}
                                     </td>
                                 </tr>

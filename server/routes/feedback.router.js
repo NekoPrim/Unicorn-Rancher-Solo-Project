@@ -73,11 +73,14 @@ router.get('/comments', rejectUnauthenticated, (req, res) => {
     // setup SQL command
         queryText = `
             SELECT
-                "comments",
-                "date"
-            FROM "feedback"
+                "user"."username",
+                "feedback"."comments",
+                "feedback"."date"
+            FROM "user"
+            JOIN "feedback"
+                ON "user"."id" = "feedback"."user_id"
             ORDER BY "date" ASC;
-        `;
+            `;
     }
 
     // send command to feedback database

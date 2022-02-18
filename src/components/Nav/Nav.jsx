@@ -47,10 +47,6 @@ function Nav() {
               Game
             </Link>
 
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
-
             <Link className="navLink" to="/info">
               Info Page
             </Link>
@@ -59,6 +55,10 @@ function Nav() {
         )}
         {user.id && (
           <>
+          <Link className="navLink" to="/user">
+            Home
+          </Link>
+
           <LogOutButton className="navLink" />
           </>
         )}

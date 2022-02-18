@@ -29,6 +29,10 @@ function Nav() {
             <Link className="navLink" to="/userFeedback">
               Player Feedback
             </Link>
+
+            <Link className="navLink" to="/technologies">
+              Technologies
+            </Link>
           </>
         )}
 

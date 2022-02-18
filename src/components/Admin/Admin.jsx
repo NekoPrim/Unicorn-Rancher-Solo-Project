@@ -23,10 +23,27 @@ const Admin = () => {
     const handleDelete = (users) => {
         console.log('in handleDelete', users.id);
         
-        // send request to user saga
-        dispatch({
-            type: 'DELETE_THIS_USER',
-            payload: users.id
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "No back-sies",
+            icon: 'warning',
+            backgroundColor: 'honeydew',
+            showCancelButton: true,
+            confirmButtonColor: 'green',
+            cancelButtonColor: 'mediumvioletred',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your no longer a unicorn rancher.',
+                    'success',
+                );
+                dispatch({
+                    type: 'DELETE_THIS_USER',
+                    payload: users.id
+                });
+            }
         });
     }
 

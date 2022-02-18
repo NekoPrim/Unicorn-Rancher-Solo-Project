@@ -1,0 +1,16 @@
+.tTitle {
+    font-family: 'Luckiest Guy', cursive;
+    color: mediumvioletred;
+    text-align: center;
+}
+
+ul, li {
+    list-style-position: inside;
+    text-align: center;
+}
+
+.tCont {
+    border-bottom: 3px dotted pink;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+}

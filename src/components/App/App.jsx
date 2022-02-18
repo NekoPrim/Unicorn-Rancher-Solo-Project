@@ -33,6 +33,7 @@ import Admin from '../Admin/Admin';
 import Feedback from '../Feedback/Feedback';
 import ThankYou from '../ThankYou/ThankYou';
 import AdminFeedback from '../AdminFeedback/AdminFeedback';
+import Technologies from '../Technologies/Technologies';
 import './App.css';
 
 function App() {
@@ -187,6 +188,14 @@ function App() {
             path="/adminFeedback"
           >
             <AdminFeedback />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows feedback else shows LoginPage
+            exact
+            path="/technologies"
+          >
+            <Technologies />
           </ProtectedRoute>
 
           <Route
@@ -393,6 +402,20 @@ function App() {
               // If the user is admin, 
               // redirect them to the /admin page
               <Redirect to="/admin" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/admin"
+          >
+            {(user.authLevel === 'ADMIN') ?
+              // If the user is admin, 
+              // redirect them to the /technologies page
+              <Redirect to="/technologies" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

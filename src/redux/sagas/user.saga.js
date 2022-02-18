@@ -32,7 +32,7 @@ function* updatePic(action) {
     yield axios.put('/api/user/pic', { profile_image: action.payload});
     console.log('update user pic saga', action.payload);
 
-    // then
+    // then reload user reducer
     yield put({ type: 'FETCH_USER' });
   } catch (error) {
     console.log('User get request failed', error);
@@ -54,6 +54,7 @@ function* updateUsername(action) {
   }
 }
 
+// worker Saga: will be fired on "DELETE_USERNAME" actions
 function* deleteUserProfile() {
   try {
     const config = {

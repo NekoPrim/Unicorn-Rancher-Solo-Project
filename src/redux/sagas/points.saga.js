@@ -11,10 +11,10 @@ function* fetchpoints() {
             withCredentials: true,
         };
 
-        // send request to router
+        // send request to points router
         const response = yield axios.get('/api/points', config);
 
-        // then
+        // then set points reducer
         yield put({ type: 'SET_POINTS', payload: response.data });
     } catch (error) {
         console.log('points GET request failed', error);

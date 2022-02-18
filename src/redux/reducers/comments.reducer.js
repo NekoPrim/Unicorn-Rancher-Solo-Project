@@ -1,7 +1,7 @@
 // created feedback store variable
-const feedbackReducer = (state = [], action) => {
+const commentsReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_FEEDBACK':
+        case 'SET_COMMENTS':
             return action.payload;
         default:
             return state;
@@ -10,4 +10,4 @@ const feedbackReducer = (state = [], action) => {
 
   // feedback will be on the redux state at:
   // state.feedback
-export default feedbackReducer;
+export default commentsReducer;

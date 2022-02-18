@@ -9,11 +9,14 @@ function* fetchLevel() {
             withCredentials: true,
         };
         
-        // send request to router
+        // send request to level router
         const response = yield axios.get('/api/level', config);
 
-        // then set reducer
-        yield put({ type: 'SET_LEVEL', payload: response.data });
+        // then set level reducer
+        yield put({ 
+            type: 'SET_LEVEL', 
+            payload: response.data 
+        });
     } catch (error) {
         console.log('Level get request failed', error);
     }

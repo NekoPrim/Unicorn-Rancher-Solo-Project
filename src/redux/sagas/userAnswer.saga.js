@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "CREATE_USER_BADGE" actions
+// worker Saga: will be fired on "CREATE_USER_ANSWER" actions
 function* createUserAnswer(action) {
     console.log('in createUserAnswer', action.payload);
     const number = action.payload;
 
     try {
         
-        // send data to router
+        // send data to user answer router
         yield axios.post('/api/userAnswer', {number});
 
         } catch (error) {
@@ -16,6 +16,7 @@ function* createUserAnswer(action) {
     }
 }
 
+// worker Saga: will be fired on "DELETE_USER_ANSWER" actions
 function* deleteUserAnswer() {
     console.log('in deleteUserAnswer');
 
@@ -24,13 +25,14 @@ function* deleteUserAnswer() {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
         };
-        // send command to router
+        // send command to user answer router
         yield axios.delete('/api/userAnswer', config);
     } catch (error) {
         console.error('Delete userAnswer request failed!', error);
     }
 }
 
+// watch for functions
 function* userAnswerSaga() {
     yield takeLatest('CREATE_USER_ANSWER', createUserAnswer);
 

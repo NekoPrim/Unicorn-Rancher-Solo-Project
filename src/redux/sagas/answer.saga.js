@@ -12,10 +12,10 @@ function* fetchAnswer(action) {
             withCredentials: true,
         };
 
-        // send request to router
+        // send request to answer router
         const response = yield axios.get(`/api/answer/${id}`, config, {id} );
 
-        // then
+        // then set answer reducer
         yield put({ type: 'SET_ANSWER', payload: response.data });
     } catch (error) {
         console.log('answer GET request failed', error);

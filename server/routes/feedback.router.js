@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
-// Handles Ajax request for badge
+// Handles Ajax request for feedback
 router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('feedback router data', req.body);
 
@@ -35,6 +35,62 @@ router.post('/', rejectUnauthenticated, (req, res) => {
             console.log('feedback pool POST error', err);
         });
 });
+
+router.get('/', rejectUnauthenticated, (req, res) => {
+    
+    let queryText = '';
+
+    // only admin can access
+    if (req.user.authLevel === 'ADMIN') {
+    // setup SQL command
+        queryText = `
+        SELECT
+            ROUND(AVG("navigation"),1) AS "avg_nav",
+            ROUND(AVG("understanding"),1) AS "avg_und",
+            ROUND(AVG("fun"),1) AS "avg_fun"
+        FROM "feedback";
+        `;
+    }
+
+    // send command to feedback database
+    pool.query(queryText)
+        .then((results) => {
+            console.log('pool feedback GET results', results.rows);
+            res.send(results.rows);
+        })
+        .catch((err) => {
+            console.log('pool feedback GET ERROR!', err);
+            res.sendStatus(500);
+        })
+})
+
+router.get('/comments', rejectUnauthenticated, (req, res) => {
+    
+    let queryText = '';
+
+    // only admin can access
+    if (req.user.authLevel === 'ADMIN') {
+    // setup SQL command
+        queryText = `
+            SELECT
+                "comments",
+                "date"
+            FROM "feedback"
+            ORDER BY "date" ASC;
+        `;
+    }
+
+    // send command to feedback database
+    pool.query(queryText)
+        .then((results) => {
+            console.log('pool comments GET results', results.rows);
+            res.send(results.rows);
+        })
+        .catch((err) => {
+            console.log('pool comments GET ERROR!', err);
+            res.sendStatus(500);
+        })
+})
 
 
 module.exports = router;

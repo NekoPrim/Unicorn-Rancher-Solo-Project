@@ -10,10 +10,10 @@ function* fetchBadge() {
             withCredentials: true,
         };
 
-        // send request to router
+        // send request to badge router
         const response = yield axios.get('/api/badge', config);
 
-        // then
+        // then set badge reducer
         yield put({ type: 'SET_BADGE', payload: response.data });
     } catch (error) {
         console.log('badge GET request failed', error);

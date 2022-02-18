@@ -79,7 +79,7 @@ router.get('/comments', rejectUnauthenticated, (req, res) => {
             FROM "user"
             JOIN "feedback"
                 ON "user"."id" = "feedback"."user_id"
-            ORDER BY "date" ASC;
+            ORDER BY "date" DESC;
             `;
     }
 

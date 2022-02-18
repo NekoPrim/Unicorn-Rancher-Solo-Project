@@ -128,6 +128,5 @@ CREATE TABLE "feedback" (
     "understanding" INTEGER NOT NULL,
     "fun" INTEGER NOT NULL,
     "comments" TEXT,
-    flagged boolean DEFAULT FALSE,
-    date date NOT NULL DEFAULT CURRENT_DATE
+    "date" DATE NOT NULL DEFAULT CURRENT_DATE
 );

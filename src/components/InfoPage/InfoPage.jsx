@@ -12,7 +12,7 @@ function InfoPage() {
     <div className="infoContainer">
       <h2>Game</h2>
       <p>
-        Unicorn rancher is a question based game. Each question is 
+        Unicorn Rancher is a question based game. Every question is 
         random, so each game is different.  You have 4 questions to 
         choose from, and there is no wrong answer! All you have to do
         is answer 3 questions to recieve a badge!

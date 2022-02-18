@@ -338,7 +338,7 @@ function App() {
             exact
             path="/feedback"
           >
-            {user.id ?
+            {(user.id && user.authLevel === 'USER') ?
               // If the user is admin, 
               // redirect them to the /admin page
               <Redirect to="/feedback" />

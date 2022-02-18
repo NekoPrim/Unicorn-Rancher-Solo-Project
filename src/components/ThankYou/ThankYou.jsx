@@ -4,6 +4,7 @@ import './ThankYou.css';
 
 const ThankYou = () => {
     return(
+        <div className="area">
         <div className="tyArea">
             <h1 className="tyTitle">
                 Thank You for your feedback!
@@ -16,6 +17,7 @@ const ThankYou = () => {
                     Home
                 </button>
             </Link>
+        </div>
         </div>
     );
 }

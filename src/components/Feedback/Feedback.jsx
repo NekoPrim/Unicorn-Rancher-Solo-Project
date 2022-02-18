@@ -49,7 +49,7 @@ const Feedback = () => {
                 <div className="fdiv">
                     {/* question one */}
                     <h3 className="fTitle">
-                        How easy was it to navigate Unicorn Rancer?
+                        How easy was it to navigate Unicorn Rancher?
                     </h3>
                     <h5 className="fnum">
                         1 being not easy, 5 being super easy

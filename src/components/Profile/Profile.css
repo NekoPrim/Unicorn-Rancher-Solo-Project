@@ -1,3 +1,10 @@
+.pArea {
+    background-color: honeydew;
+    border: 3px solid pink;
+    border-radius: 20px;
+    margin: 0 10rem 0 10rem;
+}
+
 .pHeader {
     display: flex;
     margin: 0 0 0 30px ;
@@ -8,22 +15,26 @@
     border: 3px solid pink;
     border-radius: 10px;
     height: 200px;
-    margin: 0 10rem 0 10rem;
+    margin: 2rem 10rem 0 2rem;
     width: 200px;
 }
 
 .pH {
     font-family: 'Luckiest Guy', cursive;
+    margin-top: 5rem;
 }
 
 .pBtn {
-    margin: 6rem 10rem 0 0;
+    margin: 9rem 14rem 0 0;
     position: absolute;
     right: 0;
     top: 0;
 }
 
 .pBody {
+    border-top: 3px dotted pink;
     font-family: 'Luckiest Guy', cursive;
+    margin: 3rem 10rem 0 10rem;
+    padding-top: 2rem;
     text-align: center;
 }

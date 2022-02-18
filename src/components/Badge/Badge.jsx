@@ -38,9 +38,10 @@ const Badge = () => {
         <div>
             <Level />
             
+            <div className="bCont">
             <div>
                 <h1 className="bTitle">Congratulations!!!</h1>
-                <h2 className="bTitle">{myNewBadge.name}</h2>
+                <h2 className="bStuff">{myNewBadge.name}</h2>
                 <img className="bImg" src={myNewBadge.image} />
             </div>
             {/* navigate to home page */}
@@ -49,6 +50,7 @@ const Badge = () => {
                     Home
                 </button>
             </Link>
+            </div>
         </div>
     );
 }

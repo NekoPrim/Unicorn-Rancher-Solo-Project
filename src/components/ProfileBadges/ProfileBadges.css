@@ -1,11 +1,10 @@
 .profileBadgeArea {
-    background-color: honeydew;
+    /* background-color: honeydew;
     border: 3px solid pink;
-    border-radius: 20px;
+    border-radius: 20px; */
     display: flex;
-    height: 25rem;
     justify-content: space-around;
-    margin: 0 10rem 0 10rem;
+    /* margin: 0 10rem 0 10rem; */
     text-align: center;
 }
 
@@ -22,6 +21,7 @@
     /* left: 50%; */
     /* position: relative; */
     /* transform: translateX(-50%); */
+    margin-bottom: 2rem;
     width: 200px;
 }
 

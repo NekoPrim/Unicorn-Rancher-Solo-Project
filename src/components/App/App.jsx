@@ -32,6 +32,7 @@ import Edit from '../Edit/Edit';
 import Admin from '../Admin/Admin';
 import Feedback from '../Feedback/Feedback';
 import ThankYou from '../ThankYou/ThankYou';
+import AdminFeedback from '../AdminFeedback/AdminFeedback';
 import './App.css';
 
 function App() {
@@ -178,6 +179,14 @@ function App() {
             path="/ty"
           >
             <ThankYou />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows feedback else shows LoginPage
+            exact
+            path="/adminFeedback"
+          >
+            <AdminFeedback />
           </ProtectedRoute>
 
           <Route
@@ -338,7 +347,7 @@ function App() {
             exact
             path="/feedback"
           >
-            {(user.id && user.authLevel === 'USER') ?
+            {(user.authLevel === 'USER') ?
               // If the user is admin, 
               // redirect them to the /admin page
               <Redirect to="/feedback" />
@@ -356,6 +365,20 @@ function App() {
               // If the user is admin, 
               // redirect them to the /admin page
               <Redirect to="/ty" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/userfeedback"
+          >
+            {(user.authLevel === 'ADMIN') ?
+              // If the user is admin, 
+              // redirect them to the /admin page
+              <Redirect to="/adminFeedback" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

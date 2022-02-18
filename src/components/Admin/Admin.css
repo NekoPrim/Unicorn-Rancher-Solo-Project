@@ -30,3 +30,10 @@ tr:nth-child(even) {
 th, td {
     padding: 0.5rem;
 }
+
+.apImg {
+    border: 3px solid pink;
+    border-radius: 10px;
+    height: 80px;
+    width: 70px;
+}

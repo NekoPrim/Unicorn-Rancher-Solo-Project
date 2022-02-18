@@ -25,11 +25,15 @@ function Nav() {
             <Link className="navLink" to="/admin">
               All Players
             </Link>
+
+            <Link className="navLink" to="/userFeedback">
+              Player Feedback
+            </Link>
           </>
         )}
 
         {/* If a user is logged in, show these links */}
-        {user.id && (
+        {user.authLevel === 'USER' && (
           <>
             <Link className="navLink" to="/feedback">
               Feedback
@@ -51,7 +55,11 @@ function Nav() {
               Info Page
             </Link>
 
-            <LogOutButton className="navLink" />
+          </>
+        )}
+        {user.id && (
+          <>
+          <LogOutButton className="navLink" />
           </>
         )}
 

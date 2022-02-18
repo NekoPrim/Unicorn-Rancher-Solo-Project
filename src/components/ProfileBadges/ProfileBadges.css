@@ -7,7 +7,7 @@
 .badgeNum {
     font-family: 'Covered By Your Grace', cursive;
     font-size: 2rem;
-    color: dimgray;
+    color: black;
     text-align: center;
 }
 
@@ -26,5 +26,5 @@
 .picName {
     font-family: 'Covered By Your Grace', cursive;
     font-size: 2rem;
-    color: dimgray;
+    color: black;
 }

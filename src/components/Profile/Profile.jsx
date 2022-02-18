@@ -16,9 +16,9 @@ const Profile = () => {
             <div className="pHeader">
                 <img className="pImg" src={store.user.profile_image} />
                 <h2 className="pH">
-                    <strong style={{"color": "dimgray"}}>
+                    <strong style={{"color": "black"}}>
                         User Name: </strong>
-                        
+
                     <strong style={{ 
                         "color": "mediumvioletred", 
                         "fontSize": "3rem" 

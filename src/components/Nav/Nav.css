@@ -26,7 +26,7 @@
 
 .navLink {
   display: inline-block;
-  color:dimgray;
+  color:black;
   background-image: url('../../../public/images/sparkles-stars.gif');
   background-size: 200%;
   font-family: 'Covered By Your Grace', cursive;

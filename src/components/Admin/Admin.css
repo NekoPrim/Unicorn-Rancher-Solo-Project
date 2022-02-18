@@ -25,6 +25,7 @@ tr:nth-child(even) {
 .adminData {
     background-color: honeydew;
     font-family: 'Indie Flower', cursive;
+    font-size: 1.5rem;
 }
 
 th, td {

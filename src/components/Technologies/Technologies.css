@@ -11,6 +11,6 @@ ul, li {
 
 .tCont {
     border-bottom: 3px dotted pink;
-    margin-bottom: 2rem;
+    margin: 0 10rem 2rem 10rem;
     padding-bottom: 2rem;
 }

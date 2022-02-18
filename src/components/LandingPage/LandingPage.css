@@ -11,10 +11,13 @@ Grid
   /* defaults to 'flex-start' */
   justify-content: flex-start;
   align-items: flex-start;
+  margin-left: 2rem;
 }
 
 .grid-col {
   flex: 0 0 auto;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.5rem;
   padding: 0 0.5rem 0.5rem;
   box-sizing: border-box;
 }
@@ -77,4 +80,10 @@ Grid
 .grid-col_12 {
   flex-basis: 100%;
   max-width: 100%;
+}
+
+.lTitle {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 2.5rem;
+  color: mediumvioletred;
 }

@@ -16,19 +16,19 @@ function Technologies() {
             </h2>
             <ul className="tCont">
                 <li>
-                    HTML/CSS/JavaScript
+                    HTML / CSS / JavaScript
                 </li>
                 <li>
-                    Express/Node.js
+                    Express / Node.js / passport
                 </li>
                 <li>
-                    React/Redux/Saga
+                    React / Redux / Saga
                 </li>
                 <li>
-                    SQL/PG
+                    SQL / PG
                 </li>
                 <li>
-                    Postico/Github/Heroku
+                    Postico / Github / Heroku
                 </li>
             </ul>
             <h2 className="tTitle">
@@ -36,7 +36,7 @@ function Technologies() {
             </h2>
             <ul className="tCont">
                 <li>
-                    Keeping track off all my databases (8), reducers(13), and 
+                    Keeping track of all my databases (8), reducers(13), and 
                     saga/routes(8). 
                 </li>
                 <li>
@@ -48,7 +48,7 @@ function Technologies() {
             </h2 >
             <ul className="tCont">
                 <li>
-                    Add more levels (unlocked when all badges achieved)
+                    Add more levels (unlocked when all badges achieved).
                 </li>
             </ul>
             <h2 className="tTitle">
@@ -56,10 +56,10 @@ function Technologies() {
             </h2>
             <ul>
                 <li>
-                    My Cohort/Edan
+                    My Cohort / Edan
                 </li>
                 <li>
-                    Family/Friends
+                    Family / Friends
                 </li>
                 <li>
                     Prime

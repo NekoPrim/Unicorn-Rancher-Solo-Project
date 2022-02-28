@@ -25,7 +25,7 @@ function Technologies() {
                     React / Redux / Saga
                 </li>
                 <li>
-                    SQL / PG
+                    PostgresQL / PG
                 </li>
                 <li>
                     Postico / Github
@@ -36,7 +36,7 @@ function Technologies() {
             </h2>
             <ul className="tCont">
                 <li>
-                    Keeping track of all my databases (8), reducers(13), and 
+                    Keeping track of all my tables (8), reducers(13), and 
                     saga/routes(8). 
                 </li>
                 <li>
@@ -48,7 +48,7 @@ function Technologies() {
             </h2 >
             <ul className="tCont">
                 <li>
-                    Add more levels (unlocked when all badges achieved).
+                    Re-formate to cell phone friendly!
                 </li>
             </ul>
             <h2 className="tTitle">
